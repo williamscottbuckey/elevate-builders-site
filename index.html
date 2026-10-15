@@ -176,15 +176,15 @@ html{scroll-behavior:smooth}
 #eb-site .eho-mark{width:40px;height:40px}
 #eb-site .eho span{font-family:var(--display);font-stretch:112%;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.25}
 @media (max-width:560px){#eb-site .portfolio-foot{flex-direction:column;gap:.8rem}}
-#eb-site .media{border-bottom:1px solid var(--line)}
+#eb-site .media{position:relative;border-bottom:1px solid var(--line);container-type:inline-size}
 #eb-site .media-view{aspect-ratio:1800/1421;background:var(--paper-2);overflow:hidden}
 #eb-site .mv-img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
 #eb-site .mv-plan{object-fit:contain;background:#F6F3EE}
-#eb-site .media-bar{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.7rem .8rem;background:var(--paper)}
-#eb-site .media-tabs{display:flex;gap:.35rem}
-#eb-site .mtab{font:700 .72rem var(--display);font-stretch:115%;letter-spacing:.12em;text-transform:uppercase;padding:.55rem .8rem;border:1.5px solid var(--navy);background:transparent;color:var(--navy);border-radius:8px;cursor:pointer}
+#eb-site .media-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem;padding:.6rem .65rem;background:var(--paper)}
+#eb-site .media-tabs{display:flex;gap:.3rem}
+#eb-site .mtab{white-space:nowrap;font:700 .63rem var(--display);font-stretch:104%;letter-spacing:.05em;text-transform:uppercase;padding:.5rem .6rem;border:1.5px solid var(--navy);background:transparent;color:var(--navy);border-radius:8px;cursor:pointer}
 #eb-site .mtab.is-on{background:var(--navy);color:#fff}
-#eb-site .menlarge{display:inline-flex;align-items:center;gap:.5rem;font:700 .72rem var(--display);font-stretch:115%;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .75rem .3rem .3rem;border:1.5px solid var(--line);background:#fff;color:var(--navy);border-radius:8px;cursor:pointer}
+#eb-site .menlarge{white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem;font:700 .63rem var(--display);font-stretch:104%;letter-spacing:.05em;margin-left:auto;text-transform:uppercase;padding:.3rem .75rem .3rem .3rem;border:1.5px solid var(--line);background:#fff;color:var(--navy);border-radius:8px;cursor:pointer}
 #eb-site .menlarge .badge{width:26px;height:26px;border-radius:6px;box-shadow:none}
 #eb-site .menlarge:hover,#eb-site .mtab:not(.is-on):hover{border-color:var(--navy);background:var(--paper-2)}
 #eb-site .lightbox{position:fixed;inset:0;z-index:100;background:rgba(15,21,26,.92);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 56px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
@@ -192,11 +192,16 @@ html{scroll-behavior:smooth}
 #eb-site .lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px;font:700 .75rem var(--display);font-stretch:115%;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:.55rem .9rem;cursor:pointer}
 #eb-site .lb-close:hover{border-color:#fff}
 @media (max-width:620px){#eb-site .media-bar{padding:.6rem}
-#eb-site .mtab{font-size:.64rem;letter-spacing:.08em;padding:.5rem .6rem}
-#eb-site .menlarge{font-size:.64rem;letter-spacing:.08em;padding:.22rem .55rem .22rem .22rem;gap:.4rem}
+#eb-site .mtab{font-size:.62rem;letter-spacing:.06em;padding:.5rem .55rem}
+#eb-site .menlarge{font-size:.62rem;letter-spacing:.06em;padding:.22rem .55rem .22rem .22rem;gap:.4rem}
 #eb-site .menlarge .badge{width:22px;height:22px}
 #eb-site .pcard{flex-basis:86%}}
 #eb-site .lightbox[hidden],#eb-site .mv-img[hidden],#eb-site [hidden]{display:none!important}
+@container (max-width:306px){#eb-site .media .media-bar{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
+#eb-site .media .media-tabs{display:contents}
+#eb-site .media .mtab{text-align:center}
+#eb-site .media .menlarge{grid-column:1/-1;justify-content:center;margin-left:0}
+}
 #eb-site .process{background:var(--navy);color:var(--on-navy)}
 #eb-site .process h2{color:#fff}
 #eb-site .process .eyebrow{color:var(--on-navy-muted)}
@@ -481,7 +486,7 @@ html{scroll-behavior:smooth}
             <div class="media-bar">
               <div class="media-tabs" role="group" aria-label="Meridian A images">
                 <button type="button" class="mtab is-on" data-view="exterior" aria-pressed="true">Exterior</button>
-                <button type="button" class="mtab" data-view="plans" aria-pressed="false">Plans</button>
+                <button type="button" class="mtab" data-view="plans" aria-pressed="false">Floor Plans</button>
               </div>
               <button type="button" class="menlarge"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Enlarge</span></button>
             </div>
@@ -503,7 +508,7 @@ html{scroll-behavior:smooth}
             <div class="media-bar">
               <div class="media-tabs" role="group" aria-label="Meridian B images">
                 <button type="button" class="mtab is-on" data-view="exterior" aria-pressed="true">Exterior</button>
-                <button type="button" class="mtab" data-view="plans" aria-pressed="false">Plans</button>
+                <button type="button" class="mtab" data-view="plans" aria-pressed="false">Floor Plans</button>
               </div>
               <button type="button" class="menlarge"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Enlarge</span></button>
             </div>

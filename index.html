@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
 body{margin:0;background:#FBFAF7}
-#eb-site{
+:is(#eb-site,#eb-foot){
   color-scheme: light;
   --paper:#FBFAF7;
   --paper-2:#F1EFE8;
@@ -30,325 +30,361 @@ body{margin:0;background:#FBFAF7}
   --body:"Source Serif 4", Georgia, "Times New Roman", serif;
   --wrap:1180px;
 }
-#eb-site, #eb-site *{box-sizing:border-box}
+:is(#eb-site,#eb-foot), :is(#eb-site,#eb-foot) *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-#eb-site{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
-#eb-site img{display:block;max-width:100%}
-#eb-site a{color:inherit}
-#eb-site :focus-visible{outline:3px solid var(--copper);outline-offset:3px}
-#eb-site .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
-#eb-site h1,#eb-site h2,#eb-site h3{font-family:var(--display);font-stretch:112%;color:var(--navy);text-wrap:balance;margin:0;line-height:1.08}
-#eb-site h2{font-size:clamp(1.9rem,1.2rem + 2.6vw,3rem);font-weight:700;letter-spacing:-.01em}
-#eb-site h3{font-size:1.2rem;font-weight:700}
-#eb-site p{margin:0}
-#eb-site .eyebrow{font-family:var(--display);font-stretch:125%;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);display:flex;align-items:center;gap:.8rem}
-#eb-site .eyebrow::before{content:"";width:28px;height:2px;background:var(--copper)}
-#eb-site .lede{font-size:1.2rem;color:var(--muted);font-style:italic}
-#eb-site .prose{display:grid;gap:1.1rem;max-width:62ch}
-#eb-site .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-#eb-site .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:.4rem 1.5rem;padding-block:.6rem;flex-wrap:wrap}
-#eb-site .top img{height:44px;width:auto;max-width:100%}
-#eb-site .nav{display:flex;align-items:center;gap:.2rem 1.35rem;font-family:var(--display);font-stretch:108%;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;min-width:0}
-#eb-site .nav a{position:relative;text-decoration:none;color:var(--navy);padding:.55rem 0 .7rem;white-space:nowrap}
-#eb-site .nav a::after{content:"";position:absolute;left:50%;bottom:.15rem;width:0;height:4px;transform:translateX(-50%);background:var(--copper);clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);transition:width .2s}
-#eb-site .nav a:hover::after,#eb-site .nav a.active::after{width:28px}
-#eb-site .nav .cta{display:inline-flex;align-items:center;gap:.55rem;background:var(--navy);color:var(--on-navy);border-radius:9px;padding:.4rem .9rem .4rem .4rem}
-#eb-site .nav .cta .badge{width:26px;height:26px;border-radius:6px}
-#eb-site .nav .cta::after{display:none}
-#eb-site .nav .cta:hover,#eb-site .nav .cta.active{background:var(--navy-2)}
-#eb-site .to-top{position:fixed;right:clamp(14px,3vw,28px);bottom:calc(clamp(14px,3vw,28px) + env(safe-area-inset-bottom,0px));z-index:30;width:56px;height:56px;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(25,35,42,.35);transition:opacity .25s,transform .25s}
-#eb-site .to-top img{width:100%;height:100%}
-#eb-site .to-top:hover{transform:translateY(-3px)}
-#eb-site .to-top.hide{opacity:0;pointer-events:none;transform:translateY(10px)}
-@media (prefers-reduced-motion: reduce){#eb-site .to-top,#eb-site .nav a::after{transition:none}}
-@media (max-width:1240px){#eb-site .top .wrap{justify-content:center;padding-block:.5rem .2rem}
-#eb-site .top img{height:38px}
-#eb-site .nav{width:100%;justify-content:center;flex-wrap:wrap;gap:.1rem 1.2rem;padding-bottom:.4rem;font-size:.76rem}
-#eb-site .nav::-webkit-scrollbar{display:none}}
-@media (max-width:700px){#eb-site .top{position:static}
-#eb-site .nav{gap:0 1rem}}
-#eb-site .hero{position:relative;color:var(--on-navy);background:var(--navy)}
-#eb-site .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-#eb-site .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,color-mix(in srgb,var(--navy) 70%,transparent) 45%,transparent 85%)}
-#eb-site .hero .wrap{position:relative;z-index:1;padding-block:clamp(5rem,12vw,9rem)}
-#eb-site .hero .eyebrow{color:var(--on-navy-muted)}
-#eb-site .hero h1{color:#fff;font-size:clamp(2.6rem,1.4rem + 5vw,5.2rem);font-weight:800;font-stretch:118%;letter-spacing:-.02em;max-width:10ch;margin-top:1.2rem;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
-#eb-site .hero-tag{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:clamp(1rem,.8rem + 1vw,1.45rem);letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-top:1rem}
-#eb-site .hero p{max-width:46ch;margin-top:1.4rem;font-size:1.2rem;color:var(--on-navy)}
-#eb-site .btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-#eb-site .btn{font-family:var(--display);font-stretch:110%;font-weight:700;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.6rem 1.3rem .6rem .6rem;display:inline-flex;align-items:center;gap:.8rem;border-radius:12px}
-#eb-site .badge{width:34px;height:34px;border-radius:8px;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
-#eb-site .btn-copper{background:var(--copper);color:#fff}
-#eb-site .btn-copper:hover{background:#9E5523}
-#eb-site .btn-ghost{border:1.5px solid var(--on-navy-muted);color:var(--on-navy)}
-#eb-site .btn-ghost:hover{border-color:#fff}
-#eb-site .hero .hero-invest{margin-top:1.4rem;max-width:none;font-size:1rem;color:var(--on-navy-muted)}
-#eb-site .hero-invest a{color:#fff;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:.9rem;letter-spacing:.04em;text-decoration:none;border-bottom:2px solid var(--copper);padding-bottom:2px;margin-left:.3rem;white-space:nowrap}
-#eb-site .hero-invest a:hover{color:var(--copper)}
-#eb-site .markets{position:relative;z-index:1;border-top:1px solid color-mix(in srgb,var(--on-navy) 18%,transparent)}
-#eb-site .markets .wrap{padding-block:1.1rem;display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-family:var(--display);font-stretch:115%;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-navy-muted)}
-#eb-site .markets b{color:var(--on-navy);font-weight:700}
-#eb-site section{scroll-margin-top:90px;padding-block:clamp(4rem,8vw,6.5rem)}
-#eb-site .head{display:grid;gap:1rem;margin-bottom:2.6rem}
-#eb-site .split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-#eb-site .split > *{min-width:0}
-#eb-site .split.flip > figure{order:2}
-@media (max-width:860px){#eb-site .split{grid-template-columns:1fr}
-#eb-site .split.flip > figure{order:0}}
-#eb-site figure{margin:0;position:relative}
-#eb-site figure img{width:100%;height:auto;object-fit:cover;aspect-ratio:4/3}
-#eb-site figure.tall img{aspect-ratio:4/5;max-height:500px}
-#eb-site .frame::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--olive);z-index:-1}
-#eb-site .frame{z-index:0}
-#eb-site .sig{display:flex;align-items:center;gap:1rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--display);font-stretch:112%}
-#eb-site .sig img{width:44px;height:auto;flex:none}
-#eb-site .sig b{display:block;color:var(--navy);font-size:1.05rem}
-#eb-site .sig span{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-#eb-site .alt{background:var(--paper-2)}
-#eb-site .mv{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem}
-#eb-site .mv > div{background:var(--paper);border-top:4px solid var(--navy);padding:1.8rem;display:grid;gap:.7rem;align-content:start}
-#eb-site .mv > div:last-child{border-color:var(--olive)}
-#eb-site .mv h3{font-stretch:125%;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
-#eb-site .mv p{font-size:1.2rem;color:var(--navy)}
-#eb-site .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
-#eb-site .principles > div{padding:1.6rem 1.4rem 0 0;display:grid;gap:.6rem;align-content:start}
-#eb-site .principles > div + div{padding-left:1.4rem;border-left:1px solid var(--line)}
-#eb-site .principles p{color:var(--muted);font-size:1rem}
-@media (max-width:900px){#eb-site .principles{grid-template-columns:1fr 1fr}
-#eb-site .principles > div:nth-child(3){padding-left:0;border-left:0}}
-@media (max-width:560px){#eb-site .mv,#eb-site .principles{grid-template-columns:1fr}
-#eb-site .principles > div,#eb-site .principles > div + div{padding:1.4rem 0 0;border-left:0}}
-#eb-site .styles{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
-#eb-site .chip{font-family:var(--display);font-stretch:115%;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.5rem .9rem;border:1.5px solid var(--olive);color:var(--olive)}
-#eb-site .features{list-style:none;padding:0;margin:0;display:grid;gap:.1rem}
-#eb-site .features li{display:flex;gap:.8rem;align-items:baseline;padding:.55rem 0;border-bottom:1px dashed var(--line)}
-#eb-site .features li::before{content:"";flex:none;width:9px;height:9px;background:var(--copper);transform:rotate(45deg) translateY(-2px)}
-#eb-site .spec{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:center;background:var(--navy);color:var(--on-navy);padding:1.4rem 1.6rem;margin-top:.6rem}
-#eb-site .spec .num{font-family:var(--display);font-stretch:120%;font-weight:800;font-size:clamp(1.6rem,1rem + 2vw,2.3rem);color:#fff;font-variant-numeric:tabular-nums;line-height:1}
-#eb-site .spec .num small{display:block;font-size:.7rem;font-weight:600;letter-spacing:.2em;color:var(--on-navy-muted);margin-top:.4rem}
-#eb-site .spec p{font-size:.98rem;color:var(--on-navy-muted)}
-#eb-site .sub{font-family:var(--display);font-stretch:120%;font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-top:.6rem}
-#eb-site .market-row{max-width:none;border-top:1px solid var(--line);padding-top:2rem;display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:1rem 2rem}
-@media (max-width:700px){#eb-site .market-row{grid-template-columns:1fr}
-#eb-site figure.tall img{aspect-ratio:4/3}}
-#eb-site .group{font-family:var(--display);font-stretch:125%;font-size:.82rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin:2.4rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
-#eb-site .group::after{content:"";flex:1;height:1px;background:var(--line)}
-#eb-site .head + .group{margin-top:0}
-#eb-site #current-builds .group,#eb-site #completed-builds .group{margin-top:0}
-#eb-site #current-builds{margin-bottom:2.4rem}
-#eb-site .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-#eb-site .pcard{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
-#eb-site .ph{aspect-ratio:1800/1421;display:grid;place-items:center;align-content:center;gap:1rem;background:url(images/eb-seal-stone.png) center calc(50% - 26px)/96px no-repeat,
+:is(#eb-site,#eb-foot){background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+:is(#eb-site,#eb-foot) img{display:block;max-width:100%}
+:is(#eb-site,#eb-foot) a{color:inherit}
+:is(#eb-site,#eb-foot) :focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+:is(#eb-site,#eb-foot) .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+:is(#eb-site,#eb-foot) h1,:is(#eb-site,#eb-foot) h2,:is(#eb-site,#eb-foot) h3{font-family:var(--display);font-stretch:112%;color:var(--navy);text-wrap:balance;margin:0;line-height:1.08}
+:is(#eb-site,#eb-foot) h2{font-size:clamp(1.9rem,1.2rem + 2.6vw,3rem);font-weight:700;letter-spacing:-.01em}
+:is(#eb-site,#eb-foot) h3{font-size:1.2rem;font-weight:700}
+:is(#eb-site,#eb-foot) p{margin:0}
+:is(#eb-site,#eb-foot) .eyebrow{font-family:var(--display);font-stretch:125%;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);display:flex;align-items:center;gap:.8rem}
+:is(#eb-site,#eb-foot) .eyebrow::before{content:"";width:28px;height:2px;background:var(--copper)}
+:is(#eb-site,#eb-foot) .lede{font-size:1.2rem;color:var(--muted);font-style:italic}
+:is(#eb-site,#eb-foot) .prose{display:grid;gap:1.1rem;max-width:62ch}
+:is(#eb-site,#eb-foot) .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:.4rem 1.5rem;padding-block:.6rem;flex-wrap:wrap}
+:is(#eb-site,#eb-foot) .top img{height:44px;width:auto;max-width:100%}
+:is(#eb-site,#eb-foot) .nav{display:flex;align-items:center;gap:.2rem 1.35rem;font-family:var(--display);font-stretch:108%;font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;min-width:0}
+:is(#eb-site,#eb-foot) .nav a{position:relative;text-decoration:none;color:var(--navy);padding:.55rem 0 .7rem;white-space:nowrap}
+:is(#eb-site,#eb-foot) .nav a::after{content:"";position:absolute;left:50%;bottom:.15rem;width:0;height:4px;transform:translateX(-50%);background:var(--copper);clip-path:polygon(12% 0,88% 0,100% 100%,0 100%);transition:width .2s}
+:is(#eb-site,#eb-foot) .nav a:hover::after,:is(#eb-site,#eb-foot) .nav a.active::after{width:28px}
+:is(#eb-site,#eb-foot) .nav .cta{display:inline-flex;align-items:center;gap:.55rem;background:var(--navy);color:var(--on-navy);border-radius:9px;padding:.4rem .9rem .4rem .4rem}
+:is(#eb-site,#eb-foot) .nav .cta .badge{width:26px;height:26px;border-radius:6px}
+:is(#eb-site,#eb-foot) .nav .cta::after{display:none}
+:is(#eb-site,#eb-foot) .nav .cta:hover,:is(#eb-site,#eb-foot) .nav .cta.active{background:var(--navy-2)}
+:is(#eb-site,#eb-foot) .to-top{position:fixed;right:clamp(14px,3vw,28px);bottom:calc(clamp(14px,3vw,28px) + env(safe-area-inset-bottom,0px));z-index:30;width:56px;height:56px;border-radius:14px;overflow:hidden;box-shadow:0 8px 22px rgba(25,35,42,.35);transition:opacity .25s,transform .25s}
+:is(#eb-site,#eb-foot) .to-top img{width:100%;height:100%}
+:is(#eb-site,#eb-foot) .to-top:hover{transform:translateY(-3px)}
+:is(#eb-site,#eb-foot) .to-top.hide{opacity:0;pointer-events:none;transform:translateY(10px)}
+@media (prefers-reduced-motion: reduce){:is(#eb-site,#eb-foot) .to-top,:is(#eb-site,#eb-foot) .nav a::after{transition:none}}
+@media (max-width:1240px){:is(#eb-site,#eb-foot) .top .wrap{justify-content:center;padding-block:.5rem .2rem}
+:is(#eb-site,#eb-foot) .top img{height:38px}
+:is(#eb-site,#eb-foot) .nav{width:100%;justify-content:center;flex-wrap:wrap;gap:.1rem 1.2rem;padding-bottom:.4rem;font-size:.76rem}
+:is(#eb-site,#eb-foot) .nav::-webkit-scrollbar{display:none}}
+@media (max-width:700px){:is(#eb-site,#eb-foot) .top{position:static}
+:is(#eb-site,#eb-foot) .nav{gap:0 1rem}}
+:is(#eb-site,#eb-foot) .hero{position:relative;color:var(--on-navy);background:var(--navy)}
+:is(#eb-site,#eb-foot) .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+:is(#eb-site,#eb-foot) .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,color-mix(in srgb,var(--navy) 70%,transparent) 45%,transparent 85%)}
+:is(#eb-site,#eb-foot) .hero .wrap{position:relative;z-index:1;padding-block:clamp(5rem,12vw,9rem)}
+:is(#eb-site,#eb-foot) .hero .eyebrow{color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .hero h1{color:#fff;font-size:clamp(2.6rem,1.4rem + 5vw,5.2rem);font-weight:800;font-stretch:118%;letter-spacing:-.02em;max-width:10ch;margin-top:1.2rem;text-transform:uppercase;letter-spacing:.01em;line-height:.98}
+:is(#eb-site,#eb-foot) .hero-tag{font-family:var(--display);font-stretch:125%;font-weight:700;font-size:clamp(1rem,.8rem + 1vw,1.45rem);letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-top:1rem}
+:is(#eb-site,#eb-foot) .hero p{max-width:46ch;margin-top:1.4rem;font-size:1.2rem;color:var(--on-navy)}
+:is(#eb-site,#eb-foot) .btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+:is(#eb-site,#eb-foot) .btn{font-family:var(--display);font-stretch:110%;font-weight:700;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.6rem 1.3rem .6rem .6rem;display:inline-flex;align-items:center;gap:.8rem;border-radius:12px}
+:is(#eb-site,#eb-foot) .badge{width:34px;height:34px;border-radius:8px;flex:none;box-shadow:0 0 0 1px rgba(255,255,255,.35)}
+:is(#eb-site,#eb-foot) .btn-copper{background:var(--copper);color:#fff}
+:is(#eb-site,#eb-foot) .btn-copper:hover{background:#9E5523}
+:is(#eb-site,#eb-foot) .btn-ghost{border:1.5px solid var(--on-navy-muted);color:var(--on-navy)}
+:is(#eb-site,#eb-foot) .btn-ghost:hover{border-color:#fff}
+:is(#eb-site,#eb-foot) .hero .hero-invest{margin-top:1.4rem;max-width:none;font-size:1rem;color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .hero-invest a{color:#fff;font-family:var(--display);font-stretch:110%;font-weight:700;font-size:.9rem;letter-spacing:.04em;text-decoration:none;border-bottom:2px solid var(--copper);padding-bottom:2px;margin-left:.3rem;white-space:nowrap}
+:is(#eb-site,#eb-foot) .hero-invest a:hover{color:var(--copper)}
+:is(#eb-site,#eb-foot) .markets{position:relative;z-index:1;border-top:1px solid color-mix(in srgb,var(--on-navy) 18%,transparent)}
+:is(#eb-site,#eb-foot) .markets .wrap{padding-block:1.1rem;display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;font-family:var(--display);font-stretch:115%;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .markets b{color:var(--on-navy);font-weight:700}
+:is(#eb-site,#eb-foot) section{scroll-margin-top:90px;padding-block:clamp(4rem,8vw,6.5rem)}
+:is(#eb-site,#eb-foot) .head{display:grid;gap:1rem;margin-bottom:2.6rem}
+:is(#eb-site,#eb-foot) .split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+:is(#eb-site,#eb-foot) .split > *{min-width:0}
+:is(#eb-site,#eb-foot) .split.flip > figure{order:2}
+@media (max-width:860px){:is(#eb-site,#eb-foot) .split{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .split.flip > figure{order:0}}
+:is(#eb-site,#eb-foot) figure{margin:0;position:relative}
+:is(#eb-site,#eb-foot) figure img{width:100%;height:auto;object-fit:cover;aspect-ratio:4/3}
+:is(#eb-site,#eb-foot) figure.tall img{aspect-ratio:4/5;max-height:500px}
+:is(#eb-site,#eb-foot) .frame::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--olive);z-index:-1}
+:is(#eb-site,#eb-foot) .frame{z-index:0}
+:is(#eb-site,#eb-foot) .sig{display:flex;align-items:center;gap:1rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--display);font-stretch:112%}
+:is(#eb-site,#eb-foot) .sig img{width:44px;height:auto;flex:none}
+:is(#eb-site,#eb-foot) .sig b{display:block;color:var(--navy);font-size:1.05rem}
+:is(#eb-site,#eb-foot) .sig span{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+:is(#eb-site,#eb-foot) .alt{background:var(--paper-2)}
+:is(#eb-site,#eb-foot) .mv{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem}
+:is(#eb-site,#eb-foot) .mv > div{background:var(--paper);border-top:4px solid var(--navy);padding:1.8rem;display:grid;gap:.7rem;align-content:start}
+:is(#eb-site,#eb-foot) .mv > div:last-child{border-color:var(--olive)}
+:is(#eb-site,#eb-foot) .mv h3{font-stretch:125%;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
+:is(#eb-site,#eb-foot) .mv p{font-size:1.2rem;color:var(--navy)}
+:is(#eb-site,#eb-foot) .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .principles > div{padding:1.6rem 1.4rem 0 0;display:grid;gap:.6rem;align-content:start}
+:is(#eb-site,#eb-foot) .principles > div + div{padding-left:1.4rem;border-left:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .principles p{color:var(--muted);font-size:1rem}
+@media (max-width:900px){:is(#eb-site,#eb-foot) .principles{grid-template-columns:1fr 1fr}
+:is(#eb-site,#eb-foot) .principles > div:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:560px){:is(#eb-site,#eb-foot) .mv,:is(#eb-site,#eb-foot) .principles{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .principles > div,:is(#eb-site,#eb-foot) .principles > div + div{padding:1.4rem 0 0;border-left:0}}
+:is(#eb-site,#eb-foot) .styles{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
+:is(#eb-site,#eb-foot) .chip{font-family:var(--display);font-stretch:115%;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.5rem .9rem;border:1.5px solid var(--olive);color:var(--olive)}
+:is(#eb-site,#eb-foot) .features{list-style:none;padding:0;margin:0;display:grid;gap:.1rem}
+:is(#eb-site,#eb-foot) .features li{display:flex;gap:.8rem;align-items:baseline;padding:.55rem 0;border-bottom:1px dashed var(--line)}
+:is(#eb-site,#eb-foot) .features li::before{content:"";flex:none;width:9px;height:9px;background:var(--copper);transform:rotate(45deg) translateY(-2px)}
+:is(#eb-site,#eb-foot) .spec{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:center;background:var(--navy);color:var(--on-navy);padding:1.4rem 1.6rem;margin-top:.6rem}
+:is(#eb-site,#eb-foot) .spec .num{font-family:var(--display);font-stretch:120%;font-weight:800;font-size:clamp(1.6rem,1rem + 2vw,2.3rem);color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+:is(#eb-site,#eb-foot) .spec .num small{display:block;font-size:.7rem;font-weight:600;letter-spacing:.2em;color:var(--on-navy-muted);margin-top:.4rem}
+:is(#eb-site,#eb-foot) .spec p{font-size:.98rem;color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .sub{font-family:var(--display);font-stretch:120%;font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-top:.6rem}
+:is(#eb-site,#eb-foot) .market-row{max-width:none;border-top:1px solid var(--line);padding-top:2rem;display:grid;grid-template-columns:minmax(0,14rem) minmax(0,1fr);gap:1rem 2rem}
+@media (max-width:700px){:is(#eb-site,#eb-foot) .market-row{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) figure.tall img{aspect-ratio:4/3}}
+:is(#eb-site,#eb-foot) .group{font-family:var(--display);font-stretch:125%;font-size:.82rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin:2.4rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+:is(#eb-site,#eb-foot) .group::after{content:"";flex:1;height:1px;background:var(--line)}
+:is(#eb-site,#eb-foot) .head + .group{margin-top:0}
+:is(#eb-site,#eb-foot) #current-builds .group,:is(#eb-site,#eb-foot) #completed-builds .group{margin-top:0}
+:is(#eb-site,#eb-foot) #current-builds{margin-bottom:2.4rem}
+:is(#eb-site,#eb-foot) .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+:is(#eb-site,#eb-foot) .pcard{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+:is(#eb-site,#eb-foot) .ph{aspect-ratio:1800/1421;display:grid;place-items:center;align-content:center;gap:1rem;background:url(images/eb-seal-stone.png) center calc(50% - 26px)/96px no-repeat,
   repeating-linear-gradient(0deg,transparent 0 23px,color-mix(in srgb,var(--navy) 7%,transparent) 23px 24px),
   repeating-linear-gradient(90deg,transparent 0 23px,color-mix(in srgb,var(--navy) 7%,transparent) 23px 24px),var(--paper-2);border-bottom:1px solid var(--line)}
-#eb-site .ph span{margin-top:120px;font-family:var(--display);font-stretch:118%;font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border:1.5px dashed var(--muted);padding:.55rem .9rem}
-#eb-site .pbody{padding:1.3rem 1.3rem 1.4rem;display:grid;gap:.55rem}
-#eb-site .pmeta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem}
-#eb-site .pill{font-family:var(--display);font-stretch:115%;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .6rem;color:#fff}
-#eb-site .pill-build{background:var(--copper)}
-#eb-site .pill-done{background:var(--olive)}
-#eb-site .stage{font-family:var(--display);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-#eb-site .pcard h3{font-size:1.15rem}
-#eb-site .ploc{color:var(--muted);font-size:.95rem}
-#eb-site .bar{height:6px;background:var(--line)}
-#eb-site .bar i{display:block;height:100%;background:var(--copper)}
-#eb-site .specs{display:grid;grid-template-columns:1fr .7fr .8fr 1.5fr;margin:.3rem 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-#eb-site .specs div{padding:.6rem 0;display:grid;gap:.15rem}
-#eb-site .specs div + div{padding-left:.7rem;border-left:1px solid var(--line)}
-#eb-site .specs dt{font-family:var(--display);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-#eb-site .specs dd{margin:0;font-size:.95rem;font-family:var(--display);font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
-#eb-site .pfoot{font-size:.9rem;color:var(--muted);font-style:italic}
-@media (max-width:960px){#eb-site .pgrid{grid-template-columns:1fr 1fr}}
-@media (max-width:620px){#eb-site .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding-bottom:.6rem;scrollbar-width:thin}
-#eb-site .pcard{flex:0 0 82%;scroll-snap-align:start}
-#eb-site .group.single::after{display:none}
-#eb-site .group::after{content:"Swipe →";flex:none;height:auto;background:none;font-size:.68rem;letter-spacing:.14em;color:var(--muted)}
-#eb-site .spec{grid-template-columns:1fr;gap:.6rem}}
-#eb-site .presale{display:flex;align-items:center;gap:.75rem;margin-top:.5rem;padding:.55rem .9rem .55rem .55rem;border:1.5px solid var(--navy);border-radius:12px;text-decoration:none;color:var(--navy);font-family:var(--display);font-stretch:108%;font-weight:700;font-size:.82rem;letter-spacing:.04em;line-height:1.25;transition:background .2s,color .2s}
-#eb-site .presale img{width:38px;height:38px;border-radius:9px;flex:none}
-#eb-site .presale:hover{background:var(--navy);color:#fff}
-#eb-site .render-note{margin-top:1.2rem;font-family:var(--body);font-size:.9rem;line-height:1.6;color:var(--ink);max-width:95ch;padding:.9rem 1.1rem;background:var(--paper);border-left:3px solid var(--copper)}
-#eb-site .render-note strong{font-family:var(--display);font-stretch:112%;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-right:.4rem}
-#eb-site .portfolio-foot{display:flex;align-items:flex-start;gap:1.2rem;margin-top:1.1rem}
-#eb-site .portfolio-foot .render-note{margin-top:0}
-#eb-site .eho{display:flex;align-items:center;gap:.55rem;flex:none;color:var(--navy)}
-#eb-site .eho-mark{width:40px;height:40px}
-#eb-site .eho span{font-family:var(--display);font-stretch:112%;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.25}
-@media (max-width:560px){#eb-site .portfolio-foot{flex-direction:column;gap:.8rem}}
-#eb-site .media{position:relative;border-bottom:1px solid var(--line);container-type:inline-size}
-#eb-site .media-view{aspect-ratio:1800/1421;background:var(--paper-2);overflow:hidden}
-#eb-site .mv-img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
-#eb-site .mv-plan{object-fit:contain;background:#F6F3EE}
-#eb-site .media-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem;padding:.6rem .65rem;background:var(--paper)}
-#eb-site .media-tabs{display:flex;gap:.3rem}
-#eb-site .mtab{white-space:nowrap;font:700 .63rem var(--display);font-stretch:104%;letter-spacing:.05em;text-transform:uppercase;padding:.5rem .6rem;border:1.5px solid var(--navy);background:transparent;color:var(--navy);border-radius:8px;cursor:pointer}
-#eb-site .mtab.is-on{background:var(--navy);color:#fff}
-#eb-site .menlarge{white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem;font:700 .63rem var(--display);font-stretch:104%;letter-spacing:.05em;margin-left:auto;text-transform:uppercase;padding:.3rem .75rem .3rem .3rem;border:1.5px solid var(--line);background:#fff;color:var(--navy);border-radius:8px;cursor:pointer}
-#eb-site .menlarge .badge{width:26px;height:26px;border-radius:6px;box-shadow:none}
-#eb-site .menlarge:hover,#eb-site .mtab:not(.is-on):hover{border-color:var(--navy);background:var(--paper-2)}
-#eb-site .lightbox{position:fixed;inset:0;z-index:100;background:rgba(15,21,26,.92);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 56px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
-#eb-site .lightbox img{max-width:min(1400px,100%);max-height:calc(100vh - 100px);width:auto;height:auto;object-fit:contain;background:#F6F3EE;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-#eb-site .lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px;font:700 .75rem var(--display);font-stretch:115%;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:.55rem .9rem;cursor:pointer}
-#eb-site .lb-close:hover{border-color:#fff}
-@media (max-width:620px){#eb-site .media-bar{padding:.6rem}
-#eb-site .mtab{font-size:.62rem;letter-spacing:.06em;padding:.5rem .55rem}
-#eb-site .menlarge{font-size:.62rem;letter-spacing:.06em;padding:.22rem .55rem .22rem .22rem;gap:.4rem}
-#eb-site .menlarge .badge{width:22px;height:22px}
-#eb-site .pcard{flex-basis:86%}}
-#eb-site .lightbox[hidden],#eb-site .mv-img[hidden],#eb-site [hidden]{display:none!important}
-@container (max-width:306px){#eb-site .media .media-bar{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
-#eb-site .media .media-tabs{display:contents}
-#eb-site .media .mtab{text-align:center}
-#eb-site .media .menlarge{grid-column:1/-1;justify-content:center;margin-left:0}
+:is(#eb-site,#eb-foot) .ph span{margin-top:120px;font-family:var(--display);font-stretch:118%;font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);border:1.5px dashed var(--muted);padding:.55rem .9rem}
+:is(#eb-site,#eb-foot) .pbody{padding:1.3rem 1.3rem 1.4rem;display:grid;gap:.55rem}
+:is(#eb-site,#eb-foot) .pmeta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem}
+:is(#eb-site,#eb-foot) .pill{font-family:var(--display);font-stretch:115%;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .6rem;color:#fff}
+:is(#eb-site,#eb-foot) .pill-build{background:var(--copper)}
+:is(#eb-site,#eb-foot) .pill-done{background:var(--olive)}
+:is(#eb-site,#eb-foot) .stage{font-family:var(--display);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+:is(#eb-site,#eb-foot) .pcard h3{font-size:1.15rem}
+:is(#eb-site,#eb-foot) .ploc{color:var(--muted);font-size:.95rem}
+:is(#eb-site,#eb-foot) .bar{height:6px;background:var(--line)}
+:is(#eb-site,#eb-foot) .bar i{display:block;height:100%;background:var(--copper)}
+:is(#eb-site,#eb-foot) .specs{display:grid;grid-template-columns:.9fr 1fr .8fr 1.35fr;margin:.3rem 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .specs div{padding:.6rem 0;display:grid;gap:.15rem;align-content:start}
+:is(#eb-site,#eb-foot) .specs div + div{padding-left:.7rem;border-left:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .specs dt{font-family:var(--display);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+:is(#eb-site,#eb-foot) .specs dd{margin:0;font-size:.95rem;font-family:var(--display);font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+:is(#eb-site,#eb-foot) .specs dd .opt{display:block;font-size:.72rem;line-height:1.3;margin-top:.15rem;font-weight:600;color:var(--muted)}
+:is(#eb-site,#eb-foot) .specs.s5{grid-template-columns:1.15fr 1.35fr .75fr .8fr 1.1fr}
+@media (max-width:1120px){:is(#eb-site,#eb-foot) .specs.s5{grid-template-columns:1fr 1.25fr .8fr}
+:is(#eb-site,#eb-foot) .specs.s5 div:nth-child(5){grid-column:span 2}
+:is(#eb-site,#eb-foot) .specs.s5 div:nth-child(4){padding-left:0;border-left:0}
+:is(#eb-site,#eb-foot) .specs.s5 div:nth-child(n+4){border-top:1px solid var(--line)}}
+:is(#eb-site,#eb-foot) .pfoot{font-size:.9rem;color:var(--muted);font-style:italic}
+@media (min-width:961px){:is(#eb-site,#eb-foot) #current-builds .pgrid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}}
+@media (max-width:960px){:is(#eb-site,#eb-foot) .pgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){:is(#eb-site,#eb-foot) .pgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:1rem;padding-bottom:.6rem;scrollbar-width:thin}
+:is(#eb-site,#eb-foot) .pcard{flex:0 0 82%;scroll-snap-align:start}
+:is(#eb-site,#eb-foot) .group.single::after{display:none}
+:is(#eb-site,#eb-foot) .group::after{content:"Swipe →";flex:none;height:auto;background:none;font-size:.68rem;letter-spacing:.14em;color:var(--muted)}
+:is(#eb-site,#eb-foot) .spec{grid-template-columns:1fr;gap:.6rem}}
+:is(#eb-site,#eb-foot) .presale{display:flex;align-items:center;gap:.75rem;margin-top:.5rem;padding:.55rem .9rem .55rem .55rem;border:1.5px solid var(--navy);border-radius:12px;text-decoration:none;color:var(--navy);font-family:var(--display);font-stretch:108%;font-weight:700;font-size:.82rem;letter-spacing:.04em;line-height:1.25;transition:background .2s,color .2s}
+:is(#eb-site,#eb-foot) .presale img{width:38px;height:38px;border-radius:9px;flex:none}
+:is(#eb-site,#eb-foot) .presale:hover{background:var(--navy);color:#fff}
+:is(#eb-site,#eb-foot) .render-note{margin-top:1.2rem;font-family:var(--body);font-size:.9rem;line-height:1.6;color:var(--ink);max-width:95ch;padding:.9rem 1.1rem;background:var(--paper);border-left:3px solid var(--copper)}
+:is(#eb-site,#eb-foot) .render-note strong{font-family:var(--display);font-stretch:112%;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-right:.4rem}
+:is(#eb-site,#eb-foot) .portfolio-foot{display:flex;align-items:flex-start;gap:1.2rem;margin-top:1.1rem}
+:is(#eb-site,#eb-foot) .portfolio-foot .render-note{margin-top:0}
+:is(#eb-site,#eb-foot) .eho{display:flex;align-items:center;gap:.55rem;flex:none;color:var(--navy)}
+:is(#eb-site,#eb-foot) .eho-mark{width:40px;height:40px}
+:is(#eb-site,#eb-foot) .eho span{font-family:var(--display);font-stretch:112%;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.25}
+@media (max-width:560px){:is(#eb-site,#eb-foot) .portfolio-foot{flex-direction:column;gap:.8rem}}
+:is(#eb-site,#eb-foot) .media{position:relative;border-bottom:1px solid var(--line);container-type:inline-size}
+:is(#eb-site,#eb-foot) .media-view{aspect-ratio:2200/1546;background:var(--paper-2);overflow:hidden}
+:is(#eb-site,#eb-foot) .mv-img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in}
+:is(#eb-site,#eb-foot) .mv-plan{object-fit:contain;background:#F6F3EE}
+:is(#eb-site,#eb-foot) .media-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem;padding:.6rem .65rem;background:var(--paper)}
+:is(#eb-site,#eb-foot) .media-tabs{display:flex;gap:.3rem}
+:is(#eb-site,#eb-foot) .mtab{white-space:nowrap;font:700 .63rem var(--display);font-stretch:104%;letter-spacing:.05em;text-transform:uppercase;padding:.5rem .6rem;border:1.5px solid var(--navy);background:transparent;color:var(--navy);border-radius:8px;cursor:pointer}
+:is(#eb-site,#eb-foot) .mtab.is-on{background:var(--navy);color:#fff}
+:is(#eb-site,#eb-foot) .menlarge{white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem;font:700 .63rem var(--display);font-stretch:104%;letter-spacing:.05em;margin-left:auto;text-transform:uppercase;padding:.3rem .75rem .3rem .3rem;border:1.5px solid var(--line);background:#fff;color:var(--navy);border-radius:8px;cursor:pointer}
+:is(#eb-site,#eb-foot) .menlarge .badge{width:26px;height:26px;border-radius:6px;box-shadow:none}
+:is(#eb-site,#eb-foot) .menlarge:hover,:is(#eb-site,#eb-foot) .mtab:not(.is-on):hover{border-color:var(--navy);background:var(--paper-2)}
+:is(#eb-site,#eb-foot) .lightbox{position:fixed;inset:0;z-index:100;background:rgba(15,21,26,.92);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 56px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+:is(#eb-site,#eb-foot) .lightbox img{max-width:min(1400px,100%);max-height:calc(100vh - 100px);width:auto;height:auto;object-fit:contain;background:#F6F3EE;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+:is(#eb-site,#eb-foot) .lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px;font:700 .75rem var(--display);font-stretch:115%;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.5);border-radius:8px;padding:.55rem .9rem;cursor:pointer}
+:is(#eb-site,#eb-foot) .lb-close:hover{border-color:#fff}
+@media (max-width:620px){:is(#eb-site,#eb-foot) .media-bar{padding:.6rem}
+:is(#eb-site,#eb-foot) .mtab{font-size:.62rem;letter-spacing:.06em;padding:.5rem .55rem}
+:is(#eb-site,#eb-foot) .menlarge{font-size:.62rem;letter-spacing:.06em;padding:.22rem .55rem .22rem .22rem;gap:.4rem}
+:is(#eb-site,#eb-foot) .menlarge .badge{width:22px;height:22px}
+:is(#eb-site,#eb-foot) .pcard{flex-basis:86%}}
+:is(#eb-site,#eb-foot) .lightbox[hidden],:is(#eb-site,#eb-foot) .mv-img[hidden],:is(#eb-site,#eb-foot) [hidden]{display:none!important}
+@container (max-width:306px){:is(#eb-site,#eb-foot) .media .media-bar{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
+:is(#eb-site,#eb-foot) .media .media-tabs{display:contents}
+:is(#eb-site,#eb-foot) .media .mtab{text-align:center}
+:is(#eb-site,#eb-foot) .media .menlarge{grid-column:1/-1;justify-content:center;margin-left:0}
 }
-#eb-site .process{background:var(--navy);color:var(--on-navy)}
-#eb-site .process h2{color:#fff}
-#eb-site .process .eyebrow{color:var(--on-navy-muted)}
-#eb-site .process .lede{color:var(--on-navy-muted)}
-#eb-site .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:s;margin-top:2.6rem}
-#eb-site .step{border-top:2px solid var(--navy-2);padding-top:1.4rem;position:relative;display:grid;gap:.6rem;align-content:start}
-#eb-site .step::before{counter-increment:s;content:"Step " counter(s);font-family:var(--display);font-stretch:125%;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
-#eb-site .step::after{content:"";position:absolute;top:-2px;left:0;width:48px;height:2px;background:var(--copper)}
-#eb-site .step h3{color:#fff;font-size:1.6rem}
-#eb-site .step p{color:var(--on-navy-muted);font-size:1rem}
-#eb-site .process-img{margin-top:3rem}
-#eb-site .process-img img{aspect-ratio:21/8;width:100%;height:auto;max-height:320px;object-fit:cover}
-@media (max-width:900px){#eb-site .steps{grid-template-columns:1fr 1fr}
-#eb-site .process-img img{aspect-ratio:16/9}}
-@media (max-width:520px){#eb-site .steps{grid-template-columns:1fr}}
-#eb-site .leaders{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
-#eb-site .leader{display:grid;gap:1rem;align-content:start}
-#eb-site .leader .role{font-family:var(--display);font-stretch:118%;font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--olive)}
-#eb-site .leader h3{font-size:1.9rem}
-#eb-site .leader p{color:var(--muted)}
-#eb-site blockquote{margin:.6rem 0 0;padding:1.2rem 0 0 1.4rem;border-left:3px solid var(--copper);font-style:italic;font-size:1.18rem;color:var(--navy);line-height:1.5}
-@media (max-width:760px){#eb-site .leaders{grid-template-columns:1fr}}
-#eb-site .leader-banner{margin-bottom:2.6rem}
-#eb-site .leader-banner img{aspect-ratio:21/8;width:100%;height:auto;max-height:320px;object-fit:cover;object-position:center 72%}
-@media (max-width:760px){#eb-site .leader-banner img{aspect-ratio:16/9}}
-#eb-site .checks{list-style:none;padding:0;margin:0;display:grid;gap:.2rem}
-#eb-site .checks li{display:grid;grid-template-columns:28px 1fr;gap:.8rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:1.08rem;color:var(--navy)}
-#eb-site .checks li::before{content:"";width:20px;height:20px;margin-top:.2rem;border:2px solid var(--olive);background:linear-gradient(var(--olive),var(--olive)) center/8px 8px no-repeat}
-#eb-site .note{margin-top:1.2rem;color:var(--muted);font-style:italic}
-#eb-site .partners{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-block:1.6rem}
-#eb-site .partners div:last-child:nth-child(odd){grid-column:1/-1}
-#eb-site .partners div{background:var(--paper);padding:1.2rem 1rem;font-family:var(--display);font-stretch:112%;font-weight:600;font-size:.95rem;color:var(--navy)}
-@media (max-width:700px){#eb-site .partners{grid-template-columns:1fr 1fr}}
-#eb-site .invest{background:var(--navy);color:var(--on-navy)}
-#eb-site .invest h2,#eb-site .invest h3,#eb-site .invest h4{color:#fff}
-#eb-site .invest .eyebrow{color:var(--on-navy-muted)}
-#eb-site .invest .prose p{color:var(--on-navy-muted)}
-#eb-site .invest-top{margin-bottom:.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem clamp(2rem,5vw,4.5rem);align-items:end}
-#eb-site .invest-top > *{min-width:0}
-#eb-site .invest-sub{font-family:var(--display);font-stretch:125%;font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--on-navy-muted)!important;margin:3.2rem 0 1.4rem;display:flex;align-items:center;gap:1rem}
-#eb-site .invest-sub::after{content:"";flex:1;height:1px;background:var(--navy-2)}
-#eb-site .flow{list-style:none;margin:0;padding:0;display:grid;counter-reset:f;border-bottom:1px solid var(--navy-2)}
-#eb-site .flow li{display:grid;grid-template-columns:3rem minmax(0,15rem) minmax(0,1fr);grid-template-areas:"n w p" "n h p";grid-template-rows:auto 1fr;column-gap:1.4rem;row-gap:.2rem;align-items:start;padding:1.4rem 0;border-top:1px solid var(--navy-2)}
-#eb-site .flow li::before{grid-area:n;counter-increment:f;content:counter(f);width:2.2rem;height:2.2rem;display:grid;place-items:center;border:1.5px solid var(--copper);color:var(--copper);font:700 .95rem var(--display);font-variant-numeric:tabular-nums}
-#eb-site .flow .when{grid-area:w;font-family:var(--display);font-stretch:118%;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--copper)}
-#eb-site .flow h4{grid-area:h;font-family:var(--display);font-stretch:112%;font-size:1.15rem;margin:0}
-#eb-site .flow p{grid-area:p;color:var(--on-navy-muted);font-size:.98rem;max-width:68ch}
-#eb-site .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-#eb-site .roles > div{border-top:3px solid var(--olive);background:var(--navy-2);padding:1.5rem 1.4rem}
-#eb-site .roles > div:nth-child(2){border-color:var(--copper)}
-#eb-site .roles > div:nth-child(3){border-color:var(--on-navy-muted)}
-#eb-site .roles h4{font-family:var(--display);font-stretch:115%;font-size:1.1rem;margin:0 0 .8rem}
-#eb-site .roles ul{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
-#eb-site .roles li{padding:.45rem 0;border-bottom:1px solid color-mix(in srgb,var(--on-navy) 10%,transparent);color:var(--on-navy);font-size:.97rem}
-#eb-site .roles li:last-child{border-bottom:0}
-#eb-site .invest-cta{margin-top:3rem;display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:center;justify-content:space-between;padding:1.6rem 1.8rem;border:1px solid var(--navy-2)}
-#eb-site .invest-cta p{max-width:58ch;color:var(--on-navy);font-size:1.08rem}
-#eb-site .disclaimer{margin-top:1.6rem;font-size:.9rem;line-height:1.6;color:var(--on-navy);max-width:95ch;padding:.9rem 1.1rem;border-left:3px solid var(--copper);background:var(--navy-2)}
-#eb-site .disclaimer strong{font-family:var(--display);font-stretch:112%;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-right:.4rem}
-@media (max-width:760px){#eb-site .flow li{grid-template-columns:2.8rem minmax(0,1fr);grid-template-areas:"n w" "n h" "n p";row-gap:.35rem}}
-@media (max-width:900px){#eb-site .invest-top{grid-template-columns:1fr}
-#eb-site .roles{grid-template-columns:1fr}}
-#eb-site .safeguards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-2);border:1px solid var(--navy-2)}
-#eb-site .safeguards > div{background:var(--navy);padding:1.5rem 1.4rem;display:grid;gap:.55rem;align-content:start;border-top:3px solid var(--copper)}
-#eb-site .safeguards h4{font-family:var(--display);font-stretch:112%;font-size:1.05rem;margin:0}
-#eb-site .safeguards p{color:var(--on-navy-muted);font-size:.95rem}
-#eb-site .safeguards strong{color:#fff;font-weight:600}
-#eb-site .package{display:grid;grid-template-columns:minmax(0,20rem) minmax(0,1fr);gap:1rem 2.5rem;align-items:start}
-#eb-site .package p{color:var(--on-navy);font-size:1.05rem}
-#eb-site .package ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.2rem 2rem}
-#eb-site .package li{display:grid;grid-template-columns:14px 1fr;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--navy-2);color:var(--on-navy);font-size:.97rem}
-#eb-site .package li::before{content:"";width:9px;height:9px;margin-top:.5rem;background:var(--copper);transform:rotate(45deg)}
-@media (max-width:900px){#eb-site .package{grid-template-columns:1fr}
-#eb-site .safeguards{grid-template-columns:1fr}}
-@media (max-width:560px){#eb-site .safeguards,#eb-site .package ul{grid-template-columns:1fr}}
-#eb-site .mstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--navy-2);border:1px solid var(--navy-2)}
-#eb-site .mstats > div{background:var(--navy);padding:1.5rem 1.3rem;display:grid;gap:.45rem;align-content:start}
-#eb-site .mnum{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:clamp(1.7rem,1.2rem + 1.2vw,2.3rem);line-height:1;color:var(--copper);font-variant-numeric:tabular-nums}
-#eb-site .mstats h4{font-family:var(--display);font-stretch:110%;font-size:.95rem;margin:0;color:#fff}
-#eb-site .mstats p{color:var(--on-navy-muted);font-size:.92rem}
-#eb-site .mgroup{font-family:var(--display);font-stretch:118%;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin:1.6rem 0 .8rem}
-#eb-site .market .mgroup:first-child{margin-top:0}
-#eb-site .mstats-3{grid-template-columns:repeat(3,1fr)}
-#eb-site .msource{margin-top:1rem;font-size:.8rem;color:var(--on-navy-muted);font-style:italic}
-@media (max-width:900px){#eb-site .mstats,#eb-site .mstats-3{grid-template-columns:1fr 1fr}
-#eb-site .mstats-3 > div:last-child{grid-column:1/-1}}
-@media (max-width:480px){#eb-site .mstats,#eb-site .mstats-3{grid-template-columns:1fr}
-#eb-site .mstats-3 > div:last-child{grid-column:auto}}
-#eb-site .diff{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 2.5rem;margin-top:2.4rem}
-#eb-site .diff > div{display:grid;gap:.5rem;padding-top:1.2rem;border-top:2px solid var(--navy)}
-#eb-site .diff p{color:var(--muted)}
-@media (max-width:700px){#eb-site .diff{grid-template-columns:1fr}}
-#eb-site .promise{position:relative;background:var(--navy);color:var(--on-navy);padding:0}
-#eb-site .promise-grid{display:grid;grid-template-columns:1fr 1fr}
-#eb-site .promise-grid > *{min-width:0}
-#eb-site .promise-photo{position:relative;min-width:0}
-#eb-site .promise-photo > img:first-child{width:100%;height:100%;object-fit:cover;min-height:300px}
-#eb-site .promise .seal{position:absolute;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);width:clamp(110px,14vw,170px);height:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
-#eb-site .promise .text{padding:clamp(3rem,7vw,5.5rem) clamp(16px,5vw,4.5rem);display:grid;gap:1.3rem;align-content:center}
-#eb-site .promise h2{color:#fff}
-#eb-site .promise .eyebrow{color:var(--on-navy-muted)}
-#eb-site .promise p{color:var(--on-navy-muted);max-width:52ch}
-#eb-site .promise p strong{color:#fff;font-family:var(--display);font-stretch:112%;font-weight:700}
-#eb-site .tagline{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(1.1rem,.9rem + 1vw,1.5rem);letter-spacing:.08em;text-transform:uppercase;color:var(--copper);margin-top:.6rem}
-@media (max-width:860px){#eb-site .promise-grid{grid-template-columns:1fr}}
-#eb-site .commit{border-top:1px solid color-mix(in srgb,var(--on-navy) 18%,transparent);padding-top:1.4rem;margin-top:.4rem;display:grid;gap:.9rem}
-#eb-site .commit h3{font-family:var(--display);font-stretch:125%;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
-#eb-site .commit ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.6rem}
-#eb-site .commit li{display:grid;grid-template-columns:14px 1fr;gap:.6rem;color:var(--on-navy);font-size:.97rem;line-height:1.45}
-#eb-site .commit li::before{content:"";width:9px;height:9px;margin-top:.45rem;background:var(--copper);transform:rotate(45deg)}
-@media (max-width:1100px){#eb-site .commit ul{grid-template-columns:1fr}}
-#eb-site .f-eho{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem;color:var(--on-navy);font-family:var(--display);font-stretch:112%;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-#eb-site .f-eho .eho-mark{width:26px;height:26px}
-#eb-site .copy-r{font-size:.8rem;opacity:.8;margin-top:.4rem}
-#eb-site .qr-box{flex-wrap:nowrap!important;justify-content:flex-start!important;gap:1.1rem!important}
-#eb-site .qr-box img{width:112px;height:112px;flex:none;border:1px solid var(--line);border-radius:6px;padding:4px;background:#fff}
-#eb-site .qr-box small{display:block;margin-bottom:.35rem}
-#eb-site .qr-box p{font-size:.95rem;line-height:1.45;color:var(--muted);max-width:30ch}
-@media (max-width:860px),(hover:none) and (pointer:coarse){#eb-site .qr-box{display:none!important}}
-#eb-site .contact{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
-#eb-site .contact > *{min-width:0}
-#eb-site .cards{display:grid;gap:1rem}
-#eb-site .cbox{border:1.5px solid var(--line);background:#fff;padding:1.3rem 1.4rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1rem}
-#eb-site .cbox small{flex:0 0 100%;font-family:var(--display);font-stretch:120%;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
-#eb-site .cbox a{font-family:var(--display);font-stretch:100%;font-weight:700;font-size:clamp(1rem,.85rem + .8vw,1.25rem);color:var(--navy);text-decoration:none;white-space:nowrap;user-select:all;min-width:0}
-#eb-site .copy{font:600 .75rem var(--display);letter-spacing:.1em;text-transform:uppercase;background:var(--paper-2);color:var(--navy);border:1px solid var(--line);padding:.45rem .7rem;cursor:pointer}
-#eb-site .copy:hover{border-color:var(--navy)}
-@media (max-width:860px){#eb-site .contact{grid-template-columns:1fr}}
-#eb-site footer{background:var(--navy);color:var(--on-navy-muted);font-size:.9rem;border-top:3px solid var(--copper)}
-#eb-site footer .wrap{padding-block:2.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem 3rem;align-items:center}
-#eb-site footer .wrap > *{min-width:0}
-#eb-site .f-brand{display:grid;gap:.7rem}
-#eb-site .f-brand img{width:240px;max-width:100%;height:auto}
-#eb-site .f-tag{font-family:var(--display);font-stretch:125%;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
-#eb-site .f-info{display:grid;gap:.25rem;justify-self:center;text-align:center}
-#eb-site .f-info b{color:var(--on-navy);font-family:var(--display);font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
-#eb-site .f-seal{width:96px;height:auto}
-@media (max-width:760px){#eb-site footer .wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
-#eb-site .f-brand{justify-items:center}}
-#eb-site{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-#eb-site img{max-width:100%}
+:is(#eb-site,#eb-foot) .process{background:var(--navy);color:var(--on-navy)}
+:is(#eb-site,#eb-foot) .process h2{color:#fff}
+:is(#eb-site,#eb-foot) .process .eyebrow{color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .process .lede{color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;counter-reset:s;margin-top:2.6rem}
+:is(#eb-site,#eb-foot) .step{border-top:2px solid var(--navy-2);padding-top:1.4rem;position:relative;display:grid;gap:.6rem;align-content:start}
+:is(#eb-site,#eb-foot) .step::before{counter-increment:s;content:"Step " counter(s);font-family:var(--display);font-stretch:125%;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
+:is(#eb-site,#eb-foot) .step::after{content:"";position:absolute;top:-2px;left:0;width:48px;height:2px;background:var(--copper)}
+:is(#eb-site,#eb-foot) .step h3{color:#fff;font-size:1.6rem}
+:is(#eb-site,#eb-foot) .step p{color:var(--on-navy-muted);font-size:1rem}
+:is(#eb-site,#eb-foot) .process-img{margin-top:3rem}
+:is(#eb-site,#eb-foot) .process-img img{aspect-ratio:21/8;width:100%;height:auto;max-height:320px;object-fit:cover}
+@media (max-width:900px){:is(#eb-site,#eb-foot) .steps{grid-template-columns:1fr 1fr}
+:is(#eb-site,#eb-foot) .process-img img{aspect-ratio:16/9}}
+@media (max-width:520px){:is(#eb-site,#eb-foot) .steps{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .leaders{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
+:is(#eb-site,#eb-foot) .leader{display:grid;gap:1rem;align-content:start}
+:is(#eb-site,#eb-foot) .leader .role{font-family:var(--display);font-stretch:118%;font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--olive)}
+:is(#eb-site,#eb-foot) .leader h3{font-size:1.9rem}
+:is(#eb-site,#eb-foot) .leader p{color:var(--muted)}
+:is(#eb-site,#eb-foot) blockquote{margin:.6rem 0 0;padding:1.2rem 0 0 1.4rem;border-left:3px solid var(--copper);font-style:italic;font-size:1.18rem;color:var(--navy);line-height:1.5}
+@media (max-width:760px){:is(#eb-site,#eb-foot) .leaders{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .leader-banner{margin-bottom:2.6rem}
+:is(#eb-site,#eb-foot) .leader-banner img{aspect-ratio:21/8;width:100%;height:auto;max-height:320px;object-fit:cover;object-position:center 72%}
+@media (max-width:760px){:is(#eb-site,#eb-foot) .leader-banner img{aspect-ratio:16/9}}
+:is(#eb-site,#eb-foot) .checks{list-style:none;padding:0;margin:0;display:grid;gap:.2rem}
+:is(#eb-site,#eb-foot) .checks li{display:grid;grid-template-columns:28px 1fr;gap:.8rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:1.08rem;color:var(--navy)}
+:is(#eb-site,#eb-foot) .checks li::before{content:"";width:20px;height:20px;margin-top:.2rem;border:2px solid var(--olive);background:linear-gradient(var(--olive),var(--olive)) center/8px 8px no-repeat}
+:is(#eb-site,#eb-foot) .note{margin-top:1.2rem;color:var(--muted);font-style:italic}
+:is(#eb-site,#eb-foot) .partners{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-block:1.6rem}
+:is(#eb-site,#eb-foot) .partners div:last-child:nth-child(odd){grid-column:1/-1}
+:is(#eb-site,#eb-foot) .partners div{background:var(--paper);padding:1.2rem 1rem;font-family:var(--display);font-stretch:112%;font-weight:600;font-size:.95rem;color:var(--navy)}
+@media (max-width:700px){:is(#eb-site,#eb-foot) .partners{grid-template-columns:1fr 1fr}}
+:is(#eb-site,#eb-foot) .invest{background:var(--navy);color:var(--on-navy)}
+:is(#eb-site,#eb-foot) .invest h2,:is(#eb-site,#eb-foot) .invest h3,:is(#eb-site,#eb-foot) .invest h4{color:#fff}
+:is(#eb-site,#eb-foot) .invest .eyebrow{color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .invest .prose p{color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .invest-top{margin-bottom:.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem clamp(2rem,5vw,4.5rem);align-items:end}
+:is(#eb-site,#eb-foot) .invest-top > *{min-width:0}
+:is(#eb-site,#eb-foot) .invest-sub{font-family:var(--display);font-stretch:125%;font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--on-navy-muted)!important;margin:3.2rem 0 1.4rem;display:flex;align-items:center;gap:1rem}
+:is(#eb-site,#eb-foot) .invest-sub::after{content:"";flex:1;height:1px;background:var(--navy-2)}
+:is(#eb-site,#eb-foot) .flow{list-style:none;margin:0;padding:0;display:grid;counter-reset:f;border-bottom:1px solid var(--navy-2)}
+:is(#eb-site,#eb-foot) .flow li{display:grid;grid-template-columns:3rem minmax(0,15rem) minmax(0,1fr);grid-template-areas:"n w p" "n h p";grid-template-rows:auto 1fr;column-gap:1.4rem;row-gap:.2rem;align-items:start;padding:1.4rem 0;border-top:1px solid var(--navy-2)}
+:is(#eb-site,#eb-foot) .flow li::before{grid-area:n;counter-increment:f;content:counter(f);width:2.2rem;height:2.2rem;display:grid;place-items:center;border:1.5px solid var(--copper);color:var(--copper);font:700 .95rem var(--display);font-variant-numeric:tabular-nums}
+:is(#eb-site,#eb-foot) .flow .when{grid-area:w;font-family:var(--display);font-stretch:118%;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--copper)}
+:is(#eb-site,#eb-foot) .flow h4{grid-area:h;font-family:var(--display);font-stretch:112%;font-size:1.15rem;margin:0}
+:is(#eb-site,#eb-foot) .flow p{grid-area:p;color:var(--on-navy-muted);font-size:.98rem;max-width:68ch}
+:is(#eb-site,#eb-foot) .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+:is(#eb-site,#eb-foot) .roles > div{border-top:3px solid var(--olive);background:var(--navy-2);padding:1.5rem 1.4rem}
+:is(#eb-site,#eb-foot) .roles > div:nth-child(2){border-color:var(--copper)}
+:is(#eb-site,#eb-foot) .roles > div:nth-child(3){border-color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .roles h4{font-family:var(--display);font-stretch:115%;font-size:1.1rem;margin:0 0 .8rem}
+:is(#eb-site,#eb-foot) .roles ul{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
+:is(#eb-site,#eb-foot) .roles li{padding:.45rem 0;border-bottom:1px solid color-mix(in srgb,var(--on-navy) 10%,transparent);color:var(--on-navy);font-size:.97rem}
+:is(#eb-site,#eb-foot) .roles li:last-child{border-bottom:0}
+:is(#eb-site,#eb-foot) .invest-cta{margin-top:3rem;display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:center;justify-content:space-between;padding:1.6rem 1.8rem;border:1px solid var(--navy-2)}
+:is(#eb-site,#eb-foot) .invest-cta p{max-width:58ch;color:var(--on-navy);font-size:1.08rem}
+:is(#eb-site,#eb-foot) .disclaimer{margin-top:1.6rem;font-size:.9rem;line-height:1.6;color:var(--on-navy);max-width:95ch;padding:.9rem 1.1rem;border-left:3px solid var(--copper);background:var(--navy-2)}
+:is(#eb-site,#eb-foot) .disclaimer strong{font-family:var(--display);font-stretch:112%;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-right:.4rem}
+@media (max-width:760px){:is(#eb-site,#eb-foot) .flow li{grid-template-columns:2.8rem minmax(0,1fr);grid-template-areas:"n w" "n h" "n p";row-gap:.35rem}}
+@media (max-width:900px){:is(#eb-site,#eb-foot) .invest-top{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .roles{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .safeguards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-2);border:1px solid var(--navy-2)}
+:is(#eb-site,#eb-foot) .safeguards > div{background:var(--navy);padding:1.5rem 1.4rem;display:grid;gap:.55rem;align-content:start;border-top:3px solid var(--copper)}
+:is(#eb-site,#eb-foot) .safeguards h4{font-family:var(--display);font-stretch:112%;font-size:1.05rem;margin:0}
+:is(#eb-site,#eb-foot) .safeguards p{color:var(--on-navy-muted);font-size:.95rem}
+:is(#eb-site,#eb-foot) .safeguards strong{color:#fff;font-weight:600}
+:is(#eb-site,#eb-foot) .package{display:grid;grid-template-columns:minmax(0,20rem) minmax(0,1fr);gap:1rem 2.5rem;align-items:start}
+:is(#eb-site,#eb-foot) .package p{color:var(--on-navy);font-size:1.05rem}
+:is(#eb-site,#eb-foot) .package ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.2rem 2rem}
+:is(#eb-site,#eb-foot) .package li{display:grid;grid-template-columns:14px 1fr;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--navy-2);color:var(--on-navy);font-size:.97rem}
+:is(#eb-site,#eb-foot) .package li::before{content:"";width:9px;height:9px;margin-top:.5rem;background:var(--copper);transform:rotate(45deg)}
+@media (max-width:900px){:is(#eb-site,#eb-foot) .package{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .safeguards{grid-template-columns:1fr}}
+@media (max-width:560px){:is(#eb-site,#eb-foot) .safeguards,:is(#eb-site,#eb-foot) .package ul{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .mstats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--navy-2);border:1px solid var(--navy-2)}
+:is(#eb-site,#eb-foot) .mstats > div{background:var(--navy);padding:1.5rem 1.3rem;display:grid;gap:.45rem;align-content:start}
+:is(#eb-site,#eb-foot) .mnum{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:clamp(1.7rem,1.2rem + 1.2vw,2.3rem);line-height:1;color:var(--copper);font-variant-numeric:tabular-nums}
+:is(#eb-site,#eb-foot) .mstats h4{font-family:var(--display);font-stretch:110%;font-size:.95rem;margin:0;color:#fff}
+:is(#eb-site,#eb-foot) .mstats p{color:var(--on-navy-muted);font-size:.92rem}
+:is(#eb-site,#eb-foot) .mgroup{font-family:var(--display);font-stretch:118%;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin:1.6rem 0 .8rem}
+:is(#eb-site,#eb-foot) .market .mgroup:first-child{margin-top:0}
+:is(#eb-site,#eb-foot) .mstats-3{grid-template-columns:repeat(3,1fr)}
+:is(#eb-site,#eb-foot) .msource{margin-top:1rem;font-size:.8rem;color:var(--on-navy-muted);font-style:italic}
+@media (max-width:900px){:is(#eb-site,#eb-foot) .mstats,:is(#eb-site,#eb-foot) .mstats-3{grid-template-columns:1fr 1fr}
+:is(#eb-site,#eb-foot) .mstats-3 > div:last-child{grid-column:1/-1}}
+@media (max-width:480px){:is(#eb-site,#eb-foot) .mstats,:is(#eb-site,#eb-foot) .mstats-3{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .mstats-3 > div:last-child{grid-column:auto}}
+:is(#eb-site,#eb-foot) .diff{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem 2.5rem;margin-top:2.4rem}
+:is(#eb-site,#eb-foot) .diff > div{display:grid;gap:.5rem;padding-top:1.2rem;border-top:2px solid var(--navy)}
+:is(#eb-site,#eb-foot) .diff p{color:var(--muted)}
+@media (max-width:700px){:is(#eb-site,#eb-foot) .diff{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .promise{position:relative;background:var(--navy);color:var(--on-navy);padding:0}
+:is(#eb-site,#eb-foot) .promise-grid{display:grid;grid-template-columns:1fr 1fr}
+:is(#eb-site,#eb-foot) .promise-grid > *{min-width:0}
+:is(#eb-site,#eb-foot) .promise-photo{position:relative;min-width:0}
+:is(#eb-site,#eb-foot) .promise-photo > img:first-child{width:100%;height:100%;object-fit:cover;min-height:300px}
+:is(#eb-site,#eb-foot) .promise .seal{position:absolute;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);width:clamp(110px,14vw,170px);height:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+:is(#eb-site,#eb-foot) .promise .text{padding:clamp(3rem,7vw,5.5rem) clamp(16px,5vw,4.5rem);display:grid;gap:1.3rem;align-content:center}
+:is(#eb-site,#eb-foot) .promise h2{color:#fff}
+:is(#eb-site,#eb-foot) .promise .eyebrow{color:var(--on-navy-muted)}
+:is(#eb-site,#eb-foot) .promise p{color:var(--on-navy-muted);max-width:52ch}
+:is(#eb-site,#eb-foot) .promise p strong{color:#fff;font-family:var(--display);font-stretch:112%;font-weight:700}
+:is(#eb-site,#eb-foot) .tagline{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:clamp(1.1rem,.9rem + 1vw,1.5rem);letter-spacing:.08em;text-transform:uppercase;color:var(--copper);margin-top:.6rem}
+@media (max-width:860px){:is(#eb-site,#eb-foot) .promise-grid{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .commit{border-top:1px solid color-mix(in srgb,var(--on-navy) 18%,transparent);padding-top:1.4rem;margin-top:.4rem;display:grid;gap:.9rem}
+:is(#eb-site,#eb-foot) .commit h3{font-family:var(--display);font-stretch:125%;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
+:is(#eb-site,#eb-foot) .commit ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.6rem}
+:is(#eb-site,#eb-foot) .commit li{display:grid;grid-template-columns:14px 1fr;gap:.6rem;color:var(--on-navy);font-size:.97rem;line-height:1.45}
+:is(#eb-site,#eb-foot) .commit li::before{content:"";width:9px;height:9px;margin-top:.45rem;background:var(--copper);transform:rotate(45deg)}
+@media (max-width:1100px){:is(#eb-site,#eb-foot) .commit ul{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .f-eho{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;margin-top:.5rem;color:var(--on-navy);font-family:var(--display);font-stretch:112%;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+:is(#eb-site,#eb-foot) .f-eho .eho-mark{width:26px;height:26px}
+:is(#eb-site,#eb-foot) .copy-r{font-size:.8rem;opacity:.8;margin-top:.4rem}
+:is(#eb-site,#eb-foot) .trust{background:var(--paper);border-bottom:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-block:1.4rem}
+:is(#eb-site,#eb-foot) .trust-item{display:flex;align-items:center;gap:.8rem;padding:.4rem 1.2rem;min-width:0}
+:is(#eb-site,#eb-foot) .trust-item + .trust-item{border-left:1px solid var(--line)}
+:is(#eb-site,#eb-foot) .trust-item:first-child{padding-left:0}
+:is(#eb-site,#eb-foot) .trust-item svg{width:30px;height:30px;flex:none;color:var(--copper)}
+:is(#eb-site,#eb-foot) .trust-item b{display:block;font-family:var(--display);font-stretch:110%;font-size:.88rem;font-weight:700;color:var(--navy);line-height:1.25}
+:is(#eb-site,#eb-foot) .trust-item span{display:block;font-size:.85rem;color:var(--muted);line-height:1.35}
+@media (max-width:1000px){:is(#eb-site,#eb-foot) .trust-row{grid-template-columns:1fr 1fr;row-gap:1rem}
+:is(#eb-site,#eb-foot) .trust-item:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:560px){:is(#eb-site,#eb-foot) .trust-row{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .trust-item,:is(#eb-site,#eb-foot) .trust-item + .trust-item{padding-left:0;border-left:0}}
+:is(#eb-site,#eb-foot) .warranty{display:grid;grid-template-columns:minmax(0,22rem) minmax(0,1fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+:is(#eb-site,#eb-foot) .w-card{background:var(--navy);color:var(--on-navy);padding:2.2rem 2rem;border-top:4px solid var(--copper);display:grid;gap:.7rem}
+:is(#eb-site,#eb-foot) .w-num{font-family:var(--display);font-stretch:120%;font-weight:800;font-size:clamp(2.6rem,2rem + 2vw,3.4rem);line-height:1;color:var(--copper)}
+:is(#eb-site,#eb-foot) .w-card h3{color:#fff;font-size:1.2rem}
+:is(#eb-site,#eb-foot) .w-card p{color:var(--on-navy-muted);font-size:1rem}
+:is(#eb-site,#eb-foot) .w-fine{font-size:.9rem;color:var(--muted);font-style:italic}
+@media (max-width:860px){:is(#eb-site,#eb-foot) .warranty{grid-template-columns:1fr}
+:is(#eb-site,#eb-foot) .warranty .w-card{order:2}}
+:is(#eb-site,#eb-foot) .inquiry{margin-top:2rem;display:grid;gap:1rem;max-width:40rem}
+:is(#eb-site,#eb-foot) .f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+:is(#eb-site,#eb-foot) .inquiry label{display:grid;gap:.35rem;font-family:var(--display);font-stretch:110%;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+:is(#eb-site,#eb-foot) .inquiry input,:is(#eb-site,#eb-foot) .inquiry select,:is(#eb-site,#eb-foot) .inquiry textarea{font:400 1rem var(--body);letter-spacing:0;text-transform:none;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:.7rem .8rem;width:100%;min-width:0}
+:is(#eb-site,#eb-foot) .inquiry textarea{resize:vertical}
+:is(#eb-site,#eb-foot) .inquiry input:focus,:is(#eb-site,#eb-foot) .inquiry select:focus,:is(#eb-site,#eb-foot) .inquiry textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px color-mix(in srgb,var(--copper) 25%,transparent)}
+:is(#eb-site,#eb-foot) .inquiry [aria-invalid="true"]{border-color:#B3261E}
+:is(#eb-site,#eb-foot) .inquiry .f-check{display:flex;align-items:center;gap:.6rem;font-family:var(--body);font-size:.98rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink)}
+:is(#eb-site,#eb-foot) .f-check input{width:18px;height:18px;flex:none;accent-color:var(--navy)}
+:is(#eb-site,#eb-foot) .f-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+:is(#eb-site,#eb-foot) .f-actions .btn{border:0;cursor:pointer}
+:is(#eb-site,#eb-foot) .f-status{font-size:.95rem;color:var(--navy);max-width:34ch}
+:is(#eb-site,#eb-foot) .f-status.err{color:#B3261E}
+@media (max-width:560px){:is(#eb-site,#eb-foot) .f-row{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .contact{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+:is(#eb-site,#eb-foot) .contact > *{min-width:0}
+:is(#eb-site,#eb-foot) .cards{display:grid;gap:1rem}
+:is(#eb-site,#eb-foot) .cbox{border:1.5px solid var(--line);background:#fff;padding:1.3rem 1.4rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1rem}
+:is(#eb-site,#eb-foot) .cbox small{flex:0 0 100%;font-family:var(--display);font-stretch:120%;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
+:is(#eb-site,#eb-foot) .cbox a{font-family:var(--display);font-stretch:100%;font-weight:700;font-size:clamp(1rem,.85rem + .8vw,1.25rem);color:var(--navy);text-decoration:none;white-space:nowrap;user-select:all;min-width:0}
+:is(#eb-site,#eb-foot) .copy{font:600 .75rem var(--display);letter-spacing:.1em;text-transform:uppercase;background:var(--paper-2);color:var(--navy);border:1px solid var(--line);padding:.45rem .7rem;cursor:pointer}
+:is(#eb-site,#eb-foot) .copy:hover{border-color:var(--navy)}
+@media (max-width:860px){:is(#eb-site,#eb-foot) .contact{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) footer{background:var(--navy);color:var(--on-navy-muted);font-size:.9rem;border-top:3px solid var(--copper)}
+:is(#eb-site,#eb-foot) footer .wrap{padding-block:2.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem 3rem;align-items:center}
+:is(#eb-site,#eb-foot) footer .wrap > *{min-width:0}
+:is(#eb-site,#eb-foot) .f-brand{display:grid;gap:.7rem}
+:is(#eb-site,#eb-foot) .f-brand img{width:240px;max-width:100%;height:auto}
+:is(#eb-site,#eb-foot) .f-tag{font-family:var(--display);font-stretch:125%;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
+:is(#eb-site,#eb-foot) .f-info{display:grid;gap:.25rem;justify-self:center;text-align:center}
+:is(#eb-site,#eb-foot) .f-info b{color:var(--on-navy);font-family:var(--display);font-stretch:118%;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}
+:is(#eb-site,#eb-foot) .f-seal{width:96px;height:auto}
+@media (max-width:760px){:is(#eb-site,#eb-foot) footer .wrap{grid-template-columns:1fr;justify-items:center;text-align:center}
+:is(#eb-site,#eb-foot) .f-brand{justify-items:center}}
+#eb-site,#eb-foot{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+#eb-site img,#eb-foot img{max-width:100%}
 #eb-site [hidden]{display:none!important}
 
 </style>
 <!-- PORTFOLIO SWITCHES — delete a line to show that part again.
      Hide Completed Homes:      #eb-site #completed-builds{display:none!important}
-     Hide Coming Soon:         #eb-site #current-builds{display:none!important}
+     Hide Under Construction:   #eb-site #current-builds{display:none!important}
      Hide whole Portfolio:      #eb-site #projects,#eb-site .nav a[href="#projects"]{display:none!important} -->
 <style id="portfolio-switch">
 #eb-site #current-builds .pcard-empty{display:none!important} 
@@ -379,17 +415,24 @@ html{scroll-behavior:smooth}
       <div class="eyebrow">New Homes in Northwest Arkansas</div>
       <h1>Elevate Builders</h1>
       <div class="hero-tag">Building Better. Living Elevated.</div>
-      <p>Thoughtfully designed new homes, built through disciplined planning, quality craftsmanship, and clear communication from start to finish.</p>
+      <p>Quality new homes, built through detailed planning, skilled craftsmanship, and clear communication throughout.</p>
       <div class="btns">
         <a class="btn btn-copper" href="#homes"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Explore Our Homes</span></a>
         <a class="btn btn-ghost" href="#contact"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Start a Conversation</span></a>
       </div>
       <p class="hero-invest">Investor or capital partner? <a href="#invest">Explore our Investor Program →</a></p>
     </div>
-    <div class="markets">
-      <div class="wrap"><b>Building in</b><span>Northwest Arkansas</span></div>
-    </div>
   </section>
+
+  <!-- Trust strip -->
+  <div class="trust" aria-label="Why homeowners and partners trust Elevate Builders">
+    <div class="wrap trust-row">
+      <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Licensed Residential Builder</b><span>State of Arkansas · #0487311027</span></div></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><div><b>Founded in Northwest Arkansas</b><span>Local roots, local relationships</span></div></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.2-4 4.2-6 8-6s6.8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><div><b>Owner-Led Builder</b><span>Leadership involved from conception to completion</span></div></div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 9.5V20h13V9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m9.5 14.5 2 2 3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>1-Year Limited Builder Warranty</b><span>Coverage begins at closing</span></div></div>
+    </div>
+  </div>
 
   <!-- Story -->
   <section id="story">
@@ -401,11 +444,11 @@ html{scroll-behavior:smooth}
           <h2>Every home begins with a promise.</h2>
         </div>
         <div class="prose">
-          <p>A home is more than a place to live. It is where families gather, milestones are celebrated, and memories are made for generations to come. At Elevate Builders, we believe buying a new home should be one of life’s most rewarding experiences.</p>
-          <p>Elevate Builders was founded in Northwest Arkansas with a clear purpose: to build thoughtfully designed homes, deliver an exceptional customer experience, and earn the trust of every homeowner we serve.</p>
-          <p>Every decision we make is guided by a simple philosophy: build each home with the same care, responsibility, and attention to detail we would expect for our own families. That philosophy shapes our designs, our construction process, and the way we work with homeowners and business partners.</p>
-          <p>We don’t measure success by the number of homes we build. We measure it by the trust we earn, the relationships we establish, and the pride homeowners feel every time they pull into their driveway.</p>
-          <p>As Elevate Builders grows, our commitment remains unchanged: to build homes we are proud to stand behind and to make a positive contribution to the communities we serve. We look forward to earning your trust.</p>
+          <p>A home is more than a place to live. It is where families gather, milestones are celebrated, and memories are made for years to come. At Elevate Builders, we believe buying a new home should be one of life’s most rewarding experiences.</p>
+          <p>Elevate Builders was founded in Northwest Arkansas with a clear purpose: to build well-crafted homes, make the buying process seamless, and earn the confidence of every homeowner we serve.</p>
+          <p>Every decision we make is guided by a simple philosophy: build each home with the same care, responsibility, and attention to detail we would want for our own families. That philosophy shapes our designs, our construction process, and the way we work with homeowners and business partners.</p>
+          <p>We don’t measure success by the number of homes we build. We measure it by the trust we earn, the relationships we establish, and the joy homeowners feel each time they come home.</p>
+          <p>As Elevate Builders grows, our focus remains unchanged: to build with integrity and strengthen the communities we serve. We look forward to building for you.</p>
         </div>
         <div class="sig"><img src="images/eb-a-mark.png" alt="" width="300" height="261"><div><b>Scott Buckey</b><span>Founder &amp; President</span></div></div>
       </div>
@@ -418,13 +461,13 @@ html{scroll-behavior:smooth}
       <div class="head">
         <div class="eyebrow">Why Elevate Builders</div>
         <h2>The Elevate difference.</h2>
-        <p class="lede" style="max-width:60ch">More than a home. A better building experience.</p>
+        <p class="lede" style="max-width:60ch">More than a home. A better way to build.</p>
       </div>
       <div class="diff">
-        <div><h3>Purposeful Design</h3><p>Homes thoughtfully designed to support the way families live today while remaining timeless for years to come.</p></div>
-        <div><h3>Disciplined Execution</h3><p>A consistent construction process built on planning, organization, accountability, and attention to detail.</p></div>
-        <div><h3>Meaningful Communication</h3><p>Walking homeowners through their home at key stages of construction and keeping them informed at every step, so they can make confident decisions throughout the building process.</p></div>
-        <div><h3>Relationships That Last</h3><p>Staying connected with homeowners long after the keys are delivered, because our work isn’t finished at closing.</p></div>
+        <div><h3>Purposeful Design</h3><p>Floor plans shaped around how families live today, with architecture that holds its appeal over time.</p></div>
+        <div><h3>Disciplined Execution</h3><p>A consistent approach on every job site, grounded in planning, organization, and accountability.</p></div>
+        <div><h3>Meaningful Communication</h3><p>Walking homeowners through their home at key stages of construction and keeping them informed at every step, so they can make confident decisions along the way.</p></div>
+        <div><h3>Relationships That Last</h3><p>Staying connected with homeowners long after the keys are delivered, from warranty service to the next home.</p></div>
       </div>
     </div>
   </section>
@@ -438,13 +481,13 @@ html{scroll-behavior:smooth}
           <h2>Timeless design. Modern living.</h2>
         </div>
         <div class="prose">
-          <p>Each Elevate Builders home is thoughtfully designed to combine timeless architecture, functional floor plans, and carefully selected finishes that support the way families live today.</p>
-          <p>Whether you are purchasing a first home, moving into a forever home, or investing in residential real estate, our homes are designed to provide comfort, functionality, and lasting value.</p>
+          <p>Each Elevate Builders home combines classic architecture, functional layouts, and hand-selected finishes suited to today’s lifestyles.</p>
+          <p>Whether you are purchasing a first home, moving into a forever home, or investing in residential real estate, our homes are designed for comfort, function, and enduring value.</p>
           <div class="sub">Home Styles</div>
           <div class="styles"><span class="chip">Traditional</span><span class="chip">Farmhouse</span><span class="chip">Cottage</span><span class="chip">Modern</span></div>
           <div class="sub">Every Home Features</div>
           <ul class="features">
-            <li>Thoughtful Architecture</li>
+            <li>Inviting Curb Appeal</li>
             <li>Functional Floor Plans</li>
             <li>Comfortable Living Spaces</li>
             <li>Quality Materials</li>
@@ -461,7 +504,7 @@ html{scroll-behavior:smooth}
     <div class="wrap" style="margin-top:3.5rem">
       <div class="prose market-row" id="market">
         <div class="eyebrow">Where We Build</div>
-        <p>Elevate Builders is building in the fastest-growing communities in Northwest Arkansas, including <strong>Fayetteville, Bentonville, Bella Vista, Rogers, and Springdale</strong>. These markets are defined by strong, sustained demand for quality new construction.</p>
+        <p>Elevate Builders is building in some of the fastest-growing communities in Northwest Arkansas, including <strong>Bella Vista, Bentonville, Rogers, Springdale, and Fayetteville</strong>. These markets continue to see strong demand for newly built homes.</p>
       </div>
     </div>
   </section>
@@ -480,8 +523,8 @@ html{scroll-behavior:smooth}
         <article class="pcard">
           <div class="media">
             <div class="media-view">
-              <img class="mv-img" data-view="exterior" src="images/eb-meridian-a-exterior-v1.jpg" alt="The Meridian A front elevation rendering: two-story traditional home with light siding, board-and-batten gable, covered entry and two-car garage" loading="lazy" width="1800" height="1421">
-              <img class="mv-img mv-plan" data-view="plans" src="images/eb-meridian-a-plans-v1.jpg" alt="The Meridian A first and second floor plans with room labels and square footage" loading="lazy" width="2200" height="1546" hidden>
+              <img class="mv-img" data-view="exterior" src="images/eb-meridian-a-exterior-v3.jpg" data-full="images/eb-meridian-a-exterior-v3-full.jpg" alt="The Meridian A front elevation rendering: two-story traditional home with light siding, board-and-batten gable, covered entry and two-car garage" loading="lazy" width="1800" height="1152">
+              <img class="mv-img mv-plan" data-view="plans" src="images/eb-meridian-a-plans-v3.jpg" data-full="images/eb-meridian-a-plans-v3-full.jpg" alt="The Meridian A first and second floor plans with room labels and square footage" loading="lazy" width="2200" height="1546" hidden>
             </div>
             <div class="media-bar">
               <div class="media-tabs" role="group" aria-label="Meridian A images">
@@ -495,15 +538,15 @@ html{scroll-behavior:smooth}
             <div class="pmeta"><span class="pill pill-build">Coming Soon</span><span class="stage">Presale</span></div>
             <h3>Meridian A</h3>
             <p class="ploc">5911 SW Omaha Ave<br>Osage Hills Phase 3 &middot; Bentonville, AR</p>
-            <dl class="specs"><div><dt>Sq Ft</dt><dd>2,187</dd></div><div><dt>Beds</dt><dd>4</dd></div><div><dt>Baths</dt><dd>2.5</dd></div><div><dt>Style</dt><dd>Traditional</dd></div></dl>
-            <a class="presale" href="#contact"><img src="images/eb-favicon.png" alt="" width="180" height="180"><span>Contact us for presale information</span></a>
+            <dl class="specs s5"><div><dt>Heated SF</dt><dd>2,187</dd></div><div><dt>Beds</dt><dd>4 <span class="opt">w/ opt. media room</span></dd></div><div><dt>Baths</dt><dd>2.5</dd></div><div><dt>Garage</dt><dd>2-Car</dd></div><div><dt>Style</dt><dd>Traditional</dd></div></dl>
+            <a class="presale" href="#contact" data-interest="Meridian A (presale)"><img src="images/eb-favicon.png" alt="" width="180" height="180"><span>Contact us for presale information</span></a>
           </div>
         </article>
         <article class="pcard">
           <div class="media">
             <div class="media-view">
-              <img class="mv-img" data-view="exterior" src="images/eb-meridian-b-exterior-v3.jpg" alt="The Meridian B front elevation rendering: two-story traditional home with navy siding, white board-and-batten gable, two-car garage and covered front porch" loading="lazy" width="1800" height="1421">
-              <img class="mv-img mv-plan" data-view="plans" src="images/eb-meridian-b-plans-v3.jpg" alt="The Meridian B first and second floor plans with room sizes" loading="lazy" width="2200" height="1583" hidden>
+              <img class="mv-img" data-view="exterior" src="images/eb-meridian-b-exterior-v5.jpg" data-full="images/eb-meridian-b-exterior-v5-full.jpg" alt="The Meridian B front elevation rendering: two-story traditional home with navy siding, white board-and-batten gable, two-car garage and covered front porch" loading="lazy" width="1800" height="1152">
+              <img class="mv-img mv-plan" data-view="plans" src="images/eb-meridian-b-plans-v5.jpg" data-full="images/eb-meridian-b-plans-v5-full.jpg" alt="The Meridian B first and second floor plans with room sizes" loading="lazy" width="2200" height="1583" hidden>
             </div>
             <div class="media-bar">
               <div class="media-tabs" role="group" aria-label="Meridian B images">
@@ -517,8 +560,8 @@ html{scroll-behavior:smooth}
             <div class="pmeta"><span class="pill pill-build">Coming Soon</span><span class="stage">Presale</span></div>
             <h3>Meridian B</h3>
             <p class="ploc">5908 SW Messenger Ave<br>Osage Hills Phase 3 &middot; Bentonville, AR</p>
-            <dl class="specs"><div><dt>Sq Ft</dt><dd>2,216</dd></div><div><dt>Beds</dt><dd>4</dd></div><div><dt>Baths</dt><dd>2.5</dd></div><div><dt>Style</dt><dd>Traditional</dd></div></dl>
-            <a class="presale" href="#contact"><img src="images/eb-favicon.png" alt="" width="180" height="180"><span>Contact us for presale information</span></a>
+            <dl class="specs s5"><div><dt>Heated SF</dt><dd>2,216</dd></div><div><dt>Beds</dt><dd>4 <span class="opt">w/ opt. media room</span></dd></div><div><dt>Baths</dt><dd>2.5</dd></div><div><dt>Garage</dt><dd>2-Car</dd></div><div><dt>Style</dt><dd>Traditional</dd></div></dl>
+            <a class="presale" href="#contact" data-interest="Meridian B (presale)"><img src="images/eb-favicon.png" alt="" width="180" height="180"><span>Contact us for presale information</span></a>
           </div>
         </article>
         <article class="pcard pcard-empty">
@@ -528,7 +571,7 @@ html{scroll-behavior:smooth}
             <h3>Home Name or Street Address</h3>
             <p class="ploc">Community &middot; City, AR</p>
             <dl class="specs"><div><dt>Sq Ft</dt><dd>—</dd></div><div><dt>Beds</dt><dd>—</dd></div><div><dt>Baths</dt><dd>—</dd></div><div><dt>Style</dt><dd>—</dd></div></dl>
-            <a class="presale" href="#contact"><img src="images/eb-favicon.png" alt="" width="180" height="180"><span>Contact us for presale information</span></a>
+            <a class="presale" href="#contact" data-interest="Future Elevate Builders homes"><img src="images/eb-favicon.png" alt="" width="180" height="180"><span>Contact us for presale information</span></a>
           </div>
         </article>
       </div>
@@ -577,17 +620,39 @@ html{scroll-behavior:smooth}
   <section class="process" id="process">
     <div class="wrap">
       <div class="head">
-        <div class="eyebrow">Thoughtfully Planned. Expertly Built.</div>
-        <h2>A proven process from start to finish.</h2>
-        <p class="lede">Every Elevate Builders home follows a disciplined four-step process that brings consistency, transparency, and confidence to each stage of the build.</p>
+        <div class="eyebrow">Carefully Planned. Expertly Built.</div>
+        <h2>A disciplined process from start to finish.</h2>
+        <p class="lede">Our four-step process brings consistency, transparency, and peace of mind to each stage of the build.</p>
       </div>
       <div class="steps">
-        <div class="step"><h3>Discover</h3><p>Carefully selecting homesites within desirable Northwest Arkansas communities.</p></div>
-        <div class="step"><h3>Design</h3><p>Creating homes that balance architectural character, functionality, and everyday living.</p></div>
-        <div class="step"><h3>Build</h3><p>Managing construction through detailed planning, quality craftsmanship, and disciplined execution.</p></div>
-        <div class="step"><h3>Deliver</h3><p>Preparing every home with care before welcoming its new owners.</p></div>
+        <div class="step"><h3>Discover</h3><p>Selecting homesites in desirable Northwest Arkansas neighborhoods.</p></div>
+        <div class="step"><h3>Design</h3><p>Creating homes that balance architectural character, functionality, and daily comfort.</p></div>
+        <div class="step"><h3>Build</h3><p>Managing every phase of construction with tight scheduling, experienced trade partners, and rigorous quality checks.</p></div>
+        <div class="step"><h3>Deliver</h3><p>Completing final inspections and walkthroughs before welcoming each new owner.</p></div>
       </div>
       <figure class="process-img"><img src="images/eb-framing.jpg" alt="Wood roof trusses framed against a blue sky" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- Warranty -->
+  <section class="alt" id="warranty">
+    <div class="wrap warranty">
+      <div class="w-card">
+        <span class="w-num">1 Year</span>
+        <h3>Limited Builder Warranty</h3>
+        <p>Every Elevate Builders home includes a one-year limited builder warranty covering defects in workmanship and materials, beginning on the date of closing.</p>
+      </div>
+      <div>
+        <div class="head">
+          <div class="eyebrow">Warranty</div>
+          <h2>Our commitment continues after closing.</h2>
+        </div>
+        <div class="prose">
+          <p>Applicable appliances, equipment, and building products also carry manufacturer warranties, which may extend beyond the builder warranty. Coverage and duration vary by product and manufacturer.</p>
+          <p>We provide warranty information at closing so you understand your coverage and how to request service.</p>
+          <p class="w-fine">All coverage is subject to the terms, conditions, and exclusions of the applicable written warranties.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -595,25 +660,24 @@ html{scroll-behavior:smooth}
   <section id="leadership">
     <div class="wrap">
       <div class="head">
-        <div class="eyebrow">Leadership Built on Experience</div>
-        <h2>Experience shapes every decision.</h2>
-        <p class="lede" style="max-width:60ch">Leadership influences every aspect of a home, from the earliest planning discussions through construction and ultimately delivering the keys to a new homeowner.</p>
+        <div class="eyebrow">Our Leadership</div>
+        <h2>Experience you can build on.</h2>
       </div>
       <div class="leaders">
         <article class="leader">
           <div class="role">Founder &amp; President</div>
           <h3>Scott Buckey</h3>
-          <p>Scott Buckey founded Elevate Builders with a vision of creating a residential homebuilding company built on disciplined leadership, responsible growth, and exceptional customer experiences.</p>
-          <p>Throughout his career, Scott has provided executive leadership across residential construction, residential development, commercial construction, business operations, and strategic growth. His experience includes organizational leadership, financial management, operational planning, and the successful delivery of complex construction and development projects.</p>
-          <p>As Founder and President, Scott sets the strategic direction for Elevate Builders while cultivating relationships and guiding the company’s long-term growth.</p>
+          <p>Scott Buckey founded Elevate Builders after more than 35 years in commercial and residential construction, experience earned on job sites and in boardrooms alike.</p>
+          <p>As Vice President and later President of Construction, Scott led operations spanning single-family and multifamily housing, mixed-use development, and heavy civil work, with project volumes of up to $80 million. His education includes executive management at the University of Notre Dame, organizational management at Bethel College, and management and architectural technology at the University of Toledo.</p>
+          <p>Today, Scott sets the strategic direction for Elevate Builders, building the partnerships that move each home from vision to keys, all driven by one belief: Building Better. Living Elevated.</p>
           <blockquote>“Every home carries our name and our reputation. That’s why we hold ourselves to the same standard on every project, no matter how large or small.”</blockquote>
         </article>
         <article class="leader">
           <div class="role">Field Construction Services</div>
           <h3>Jason Moon</h3>
-          <p>Jason Moon oversees the day-to-day construction of every Elevate Builders home, leading field operations, scheduling, trade partner coordination, quality assurance, and project execution.</p>
-          <p>His leadership emphasizes preparation, communication, accountability, and attention to detail, ensuring every home is built with consistency and care.</p>
-          <blockquote>“A well-built home starts long before the first board goes up. We plan every detail, hold every trade to the same standard, and walk every home as if we were moving in ourselves.”</blockquote>
+          <p>Jason Moon oversees the day-to-day construction of Elevate Builders homes, leading field operations, scheduling, trade partner coordination, quality assurance, and project execution.</p>
+          <p>His approach emphasizes preparation, communication, accountability, and precision, so each home is built right the first time.</p>
+          <blockquote>“A well-built home starts long before the first board goes up. We plan every detail, hold every trade accountable, and walk every home as if we were moving in ourselves.”</blockquote>
         </article>
       </div>
     </div>
@@ -631,16 +695,16 @@ html{scroll-behavior:smooth}
           </div>
           <div class="mv" style="grid-template-columns:1fr;margin-bottom:0">
             <div><h3>Mission</h3><p>To create thoughtfully designed homes that elevate everyday living through intentional planning, sound construction, and an exceptional customer experience.</p></div>
-            <div><h3>Vision</h3><p>To build homes that enrich lives, strengthen neighborhoods, and leave a positive impact for generations to come.</p></div>
+            <div><h3>Vision</h3><p>To build homes that enrich lives, strengthen neighborhoods, and make a positive impact for generations to come.</p></div>
           </div>
         </div>
       </div>
       <div class="eyebrow" style="margin-bottom:1rem">Our Principles</div>
       <div class="principles">
-        <div><h3>Integrity</h3><p>Do the right thing, honor every commitment, and take ownership of every outcome.</p></div>
-        <div><h3>Innovation</h3><p>Embrace new ideas, smarter solutions, and continuous learning to improve the homes we build and the experience we provide.</p></div>
+        <div><h3>Integrity</h3><p>Do the right thing, honor our commitments, and take ownership of the outcome.</p></div>
+        <div><h3>Innovation</h3><p>Embrace new ideas, smarter solutions, and continuous learning to improve the homes we build and the service we provide.</p></div>
         <div><h3>Collaboration</h3><p>Work together with homeowners, partners, and one another to achieve better outcomes through open communication and shared success.</p></div>
-        <div><h3>Stewardship</h3><p>Care for every investment, every relationship, and every home with responsibility, respect, and a long-term commitment to doing what’s right.</p></div>
+        <div><h3>Stewardship</h3><p>Care for every investment, every relationship, and every home with responsibility, respect, and a long-term dedication to doing what’s right.</p></div>
       </div>
     </div>
   </section>
@@ -655,17 +719,15 @@ html{scroll-behavior:smooth}
       <div class="text">
         <div class="eyebrow">Our Promise</div>
         <h2>Building Better. Living Elevated.</h2>
-        <p><strong>Building Better</strong> means approaching every home with purpose, making thoughtful decisions, honoring every commitment, and never settling for “good enough.”</p>
+        <p><strong>Building Better</strong> means building with intention, keeping our word, and never settling for “good enough.”</p>
         <p><strong>Living Elevated</strong> is more than owning a home. It is the pride of pulling into your driveway, the comfort of gathering with family and friends, and the confidence that comes from a home built with care.</p>
         <div class="commit">
           <h3>Our Commitments to Every Homeowner</h3>
           <ul>
             <li>Building homes we are proud to stand behind.</li>
-            <li>Communicating openly throughout every stage of construction.</li>
-            <li>Respecting every homeowner’s investment.</li>
-            <li>Honoring every commitment we make.</li>
+            <li>Respecting the investment each homeowner makes.</li>
             <li>Continuously improving the way we build and serve.</li>
-            <li>Delivering an exceptional homeownership experience.</li>
+            <li>Delivering a homeownership experience worth recommending.</li>
           </ul>
         </div>
       </div>
@@ -686,7 +748,7 @@ html{scroll-behavior:smooth}
           <div>Individual, Family Office &amp; Institutional Investors</div><div>Developers &amp; Landowners</div><div>Lenders &amp; Financial Institutions</div><div>Real Estate Professionals</div><div>Architects</div>
           <div>Engineers</div><div>Trade Partners</div><div>Suppliers</div><div>Municipalities &amp; Utility Providers</div>
         </div>
-        <p style="color:var(--muted)">Working together through open communication, shared accountability, and mutual respect creates better homes, stronger partnerships, and better outcomes for every homeowner and investor.</p>
+        <p style="color:var(--muted)">Working together with mutual respect and shared responsibility creates better homes and stronger results for the homeowners and investors we serve.</p>
       </div>
     </div>
   </section>
@@ -697,7 +759,7 @@ html{scroll-behavior:smooth}
       <div class="invest-top">
         <div class="head" style="margin:0">
           <div class="eyebrow">Investor Program</div>
-          <h2>Invest in new construction homes with Elevate Builders.</h2>
+          <h2>Invest in new-construction homes with Elevate Builders.</h2>
         </div>
         <div class="prose">
           <p>Elevate Builders partners with individual investors, family offices, and institutions to develop single-family homes in Northwest Arkansas, the nation’s ninth-fastest-growing metro, where newly built properties account for more than a third of all sales. Investors retain full ownership of the asset and its realized returns at disposition, while Elevate Builders delivers each home from site selection to completion under a guaranteed maximum price.</p>
@@ -716,7 +778,7 @@ html{scroll-behavior:smooth}
         </div>
         <h4 class="mgroup">Economy &amp; Employers</h4>
         <div class="mstats mstats-3">
-          <div><span class="mnum">No. 1</span><h4>Best-performing large metro</h4><p>Milken Institute Best-Performing Cities 2026, including 4th nationally in one-year wage growth.</p></div>
+          <div><span class="mnum">No. 1</span><h4>Best-performing large metro</h4><p>Milken Institute Best-Performing Cities 2026, including fourth nationally in one-year wage growth.</p></div>
           <div><span class="mnum">3</span><h4>Fortune 500 headquarters</h4><p>Walmart, Tyson Foods, and J.B. Hunt Transport Services are headquartered in the region.</p></div>
           <div><span class="mnum">1,450</span><h4>Corporate subsidiary offices</h4><p>Supplier and vendor offices drawn to the region by its major retail and consumer-goods employers.</p></div>
         </div>
@@ -732,11 +794,11 @@ html{scroll-behavior:smooth}
 
       <h3 class="invest-sub">The Investment Process</h3>
       <ol class="flow">
-        <li><span class="when">Underwriting</span><h4>Review the Opportunity</h4><p>Elevate Builders and our preferred real estate brokerage identify a homesite in a high-demand Northwest Arkansas community. You receive a project-specific pro forma covering land basis, hard and soft costs, financing assumptions, projected sale price or rental income, and estimated hold period.</p></li>
-        <li><span class="when">Acquisition &amp; Capitalization</span><h4>Commit &amp; Finance</h4><p>You acquire the homesite and capitalize the project with equity, a land and construction loan, or a combination of both. You place a builder’s risk policy and sign a guaranteed maximum price (GMP) contract with Elevate Builders. The GMP includes a defined contingency.</p></li>
-        <li><span class="when">Pre-Construction</span><h4>Plan &amp; Permit</h4><p>Elevate Builders finalizes the plan, specifications, design approvals, and building permits. Work begins with a defined scope, budget, and schedule.</p></li>
-        <li><span class="when">Construction</span><h4>Build &amp; Fund Draws</h4><p>Over an average five-month build, Elevate Builders manages every trade, the schedule, and quality control. Draws are funded bi-weekly and tied to completed milestones, with progress reporting at each stage.</p></li>
-        <li><span class="when">Disposition</span><h4>Sell or Hold</h4><p>At completion, you choose the exit. If sold through our brokerage partner, any construction loan is repaid at closing, commissions and closing costs are settled, and net profit is distributed to the ownership entity. If held, the home is placed into service as a long-term rental.</p></li>
+        <li><span class="when">Underwriting</span><h4>Review the Opportunity</h4><p>Each opportunity begins with a vetted homesite in a high-demand Northwest Arkansas neighborhood and a project-specific pro forma covering land basis, hard and soft costs, financing assumptions, projected sale price or rental income, and estimated hold period.</p></li>
+        <li><span class="when">Acquisition &amp; Capitalization</span><h4>Commit &amp; Finance</h4><p>The homesite is acquired, financing is put in place, and a guaranteed maximum price (GMP) contract with a defined contingency is signed.</p></li>
+        <li><span class="when">Pre-Construction</span><h4>Plan &amp; Permit</h4><p>Plans, specifications, approvals, and permits are finalized, so work begins with a set scope, budget, and schedule.</p></li>
+        <li><span class="when">Construction</span><h4>Build &amp; Fund Draws</h4><p>The build is scheduled for approximately five months, with bi-weekly draws tied to completed milestones and progress reports at each stage.</p></li>
+        <li><span class="when">Disposition</span><h4>Sell or Hold</h4><p>At completion, you choose the exit: sell the home and distribute net profit to the ownership entity, or hold it as a long-term rental.</p></li>
       </ol>
 
       <h3 class="invest-sub">Roles &amp; Responsibilities</h3>
@@ -760,6 +822,7 @@ html{scroll-behavior:smooth}
             <li>Design approvals and building permits</li>
             <li>Construction management and trade coordination</li>
             <li>GMP contract, with cost overruns absorbed</li>
+            <li>Builder fee included in the GMP</li>
             <li>Progress reporting through completion</li>
           </ul>
         </div>
@@ -775,14 +838,14 @@ html{scroll-behavior:smooth}
 
       <h3 class="invest-sub">Program Safeguards &amp; Alignment</h3>
       <div class="safeguards">
-        <div><h4>Capped Construction Exposure</h4><p>Your exposure is capped at the guaranteed maximum price. Elevate Builders absorbs any overruns beyond it, so the contracted budget is your maximum hard-cost commitment.</p></div>
-        <div><h4>Shared Contingency Savings</h4><p>Unused contingency is shared <strong>60% to the investor</strong> and <strong>40% to Elevate Builders</strong>, rewarding efficient construction for both parties.</p></div>
+        <div><h4>Capped Construction Exposure</h4><p>Your exposure is capped at the guaranteed maximum price. Elevate Builders absorbs overruns beyond it, subject to the terms of the GMP contract, so the contracted budget is your maximum hard-cost commitment.</p></div>
+        <div><h4>Shared Contingency Savings</h4><p>Unused contingency is shared <strong>60% to the investor</strong> and <strong>40% to Elevate Builders</strong>, aligning incentives around efficient construction.</p></div>
         <div><h4>Tailored Structure</h4><p>Each project can be held through the investment vehicle of your choosing, structured to align with your goals and objectives.</p></div>
       </div>
 
       <h3 class="invest-sub">Investor Package</h3>
       <div class="package">
-        <p>Each opportunity is supported by a full underwriting package, including:</p>
+        <p>Every investment is supported by a full underwriting package, including:</p>
         <ul>
           <li>Project-specific pro forma</li>
           <li>Sample GMP contractor agreement</li>
@@ -794,7 +857,7 @@ html{scroll-behavior:smooth}
 
       <div class="invest-cta">
         <p>Partner with Elevate Builders on your next investment. Our team will walk you through current opportunities and program terms.</p>
-        <a class="btn btn-copper" href="#contact"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Request the Investor Package</span></a>
+        <a class="btn btn-copper" href="#contact" data-interest="Investor program"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Request the Investor Package</span></a>
       </div>
       <p class="disclaimer"><strong>Important</strong>This information is provided for general purposes only and is not an offer to sell or a solicitation to buy any security. Each project is governed by its own written agreements. Real estate investment involves risk, including changes in market conditions, construction costs, interest rates, time to sale, and rental demand. Returns are not guaranteed. Prospective investors should consult their own financial, tax, and legal advisors.</p>
     </div>
@@ -809,11 +872,40 @@ html{scroll-behavior:smooth}
           <h2>Start the conversation.</h2>
         </div>
         <p class="lede" style="max-width:48ch">Whether you’re interested in a new or presale home, exploring an investment, or representing a lender, real estate firm, landowner, or trade partner, we would welcome the opportunity to connect.</p>
+        <p class="sq-form-note">Send us an inquiry using the form below, or reach us directly by phone or email.</p>
+        <form class="inquiry" id="inquiry" action="https://formsubmit.co/scott@elevatebuildersnwa.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Website inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://elevatebuildersnwa.com/#contact">
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <div class="f-row">
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <div class="f-row">
+            <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+            <label>I’m Interested In<select name="interest" id="f-interest" required>
+              <option value="">Choose one</option>
+              <option>Meridian A (presale)</option>
+              <option>Meridian B (presale)</option>
+              <option>Future Elevate Builders homes</option>
+              <option>Investor program</option>
+              <option>Lending or financing partnership</option>
+              <option>Real estate, land, or trade partnership</option>
+              <option>Other</option>
+            </select></label>
+          </div>
+          <label>Message<textarea name="message" rows="5"></textarea></label>
+          <label class="f-check"><input type="checkbox" name="list" value="Yes">Add me to the presale list for upcoming homes</label>
+          <div class="f-actions">
+            <button class="btn btn-copper" type="submit"><img class="badge" src="images/eb-favicon.png" alt="" width="180" height="180"><span>Send Inquiry</span></button>
+            <p class="f-status" id="f-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
       <div class="cards">
         <div class="cbox"><small>Phone</small><a href="tel:+14792740265" id="phone">479-274-0265</a><button class="copy" data-copy="479-274-0265" type="button">Copy</button></div>
         <div class="cbox"><small>Email</small><a href="mailto:scott@elevatebuildersnwa.com" id="email">scott@elevatebuildersnwa.com</a><button class="copy" data-copy="scott@elevatebuildersnwa.com" type="button">Copy</button></div>
-        <div class="cbox qr-box"><img src="images/eb-qr-contact.png" alt="QR code to save Elevate Builders contact information" width="800" height="800"><div><small>Save Our Contact</small><p>Scan with your phone’s camera to add Elevate Builders to your contacts.</p></div></div>
         <div class="cbox"><small>Service Area</small><span style="font-family:var(--display);font-weight:700;color:var(--navy);font-size:1.05rem">Northwest Arkansas</span></div>
       </div>
     </div>
@@ -822,23 +914,7 @@ html{scroll-behavior:smooth}
 
 <a class="to-top hide" id="toTop" href="#top" aria-label="Back to top"><img src="images/eb-favicon.png" alt="" width="180" height="180"></a>
 
-<footer>
-  <div class="wrap">
-    <div class="f-brand">
-      <img src="images/eb-logo-horizontal-reverse.png" alt="Elevate Builders" width="1400" height="230">
-      <span class="f-tag">Building Better. Living Elevated.</span>
-    </div>
-    <div class="f-info">
-      <b>Elevate Builders LLC</b>
-      <span>Arkansas Residential Builder &middot; License #0487311027</span>
-      <span>479-274-0265 &middot; scott@elevatebuildersnwa.com</span>
-      <span>Serving Northwest Arkansas</span>
-      <span class="f-eho"><svg class="eho-mark" viewBox="0 0 64 64" role="img" aria-label="Equal Housing Opportunity"><path d="M32 6 4 26h6v32h44V26h6L32 6Zm16 46H16V24l16-11 16 11v28Z" fill="currentColor"/><rect x="22" y="30" width="20" height="5" fill="currentColor"/><rect x="22" y="40" width="20" height="5" fill="currentColor"/></svg><span>Equal Housing Opportunity</span></span>
-      <span class="copy-r">&copy; 2026 Elevate Builders LLC. All rights reserved.</span>
-    </div>
-    <img class="f-seal" src="images/eb-seal-leather.png" alt="Elevate Builders leather patch seal" width="512" height="512">
-  </div>
-</footer>
+
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged image"><button type="button" class="lb-close" id="lbClose">Close ✕</button><img id="lbImg" src="" alt=""></div>
 
@@ -855,7 +931,7 @@ document.querySelectorAll('.media').forEach(m=>{
   const imgs=[...m.querySelectorAll('.mv-img')],tabs=[...m.querySelectorAll('.mtab')];
   const show=v=>{imgs.forEach(i=>i.hidden=i.dataset.view!==v);tabs.forEach(t=>{const on=t.dataset.view===v;t.classList.toggle('is-on',on);t.setAttribute('aria-pressed',on)})};
   tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.view)));
-  const open=()=>{const cur=imgs.find(i=>!i.hidden);lbImg.src=cur.src;lbImg.alt=cur.alt;lb.hidden=false;document.body.style.overflow='hidden';lbClose.focus()};
+  const open=()=>{const cur=imgs.find(i=>!i.hidden);lbImg.src=cur.dataset.full||cur.src;lbImg.alt=cur.alt;lb.hidden=false;document.body.style.overflow='hidden';lbClose.focus()};
   m.querySelector('.menlarge').addEventListener('click',open);
   imgs.forEach(i=>i.addEventListener('click',open));
 });
@@ -864,6 +940,22 @@ const closeLb=()=>{lb.hidden=true;document.body.style.overflow=''};
 lbClose.addEventListener('click',closeLb);
 lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLb()});
+document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('click',()=>{const sel=document.getElementById('f-interest');if(sel){sel.value=a.dataset.interest;}}));
+const inq=document.getElementById('inquiry');
+if(inq){inq.addEventListener('submit',e=>{e.preventDefault();
+  const st=document.getElementById('f-status');const f=inq.elements;let bad=null;
+  ['name','email','interest'].forEach(n=>{const el=f[n];const ok=n==='email'?/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()):el.value.trim()!=='';el.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!bad)bad=el;});
+  if(bad){st.className='f-status err';st.textContent='Please complete your name, a valid email, and what you’re interested in.';bad.focus();return;}
+  const btn=inq.querySelector('button[type=submit]');btn.disabled=true;
+  st.className='f-status';st.textContent='Sending…';
+  const data=Object.fromEntries(new FormData(inq));data.list=f.list.checked?'Yes':'No';data.phone=data.phone||'Not provided';
+  data._subject='Website inquiry: '+f.interest.value+' ('+f.name.value.trim()+')';data._replyto=f.email.value.trim();
+  fetch('https://formsubmit.co/ajax/scott@elevatebuildersnwa.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+  .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)!=='true')throw new Error(j.message||r.status)}))
+  .then(()=>{inq.reset();st.className='f-status';st.textContent='Thank you for contacting Elevate Builders. We received your inquiry and will be in touch shortly.'})
+  .catch(()=>{st.className='f-status err';st.textContent='Sorry, your inquiry didn’t go through. Please email scott@elevatebuildersnwa.com or call 479-274-0265.'})
+  .finally(()=>{btn.disabled=false});
+});}
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
   const t=b.dataset.copy;
   const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600)};
@@ -872,5 +964,23 @@ document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
 function sel(b){const a=b.previousElementSibling,r=document.createRange();r.selectNodeContents(a);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
 })();
 </script>
+<div id="eb-foot">
+<footer>
+  <div class="wrap">
+    <div class="f-brand">
+      <img src="images/eb-logo-horizontal-reverse.png" alt="Elevate Builders" width="1400" height="230">
+      <span class="f-tag">Building Better. Living Elevated.</span>
+    </div>
+    <div class="f-info">
+      <b>Elevate Builders LLC</b>
+      <span>Arkansas Residential Builder &middot; License #0487311027</span>
+      <span>479-274-0265 &middot; scott@elevatebuildersnwa.com</span>
+      <span class="f-eho"><svg class="eho-mark" viewBox="0 0 64 64" role="img" aria-label="Equal Housing Opportunity"><path d="M32 6 4 26h6v32h44V26h6L32 6Zm16 46H16V24l16-11 16 11v28Z" fill="currentColor"/><rect x="22" y="30" width="20" height="5" fill="currentColor"/><rect x="22" y="40" width="20" height="5" fill="currentColor"/></svg><span>Equal Housing Opportunity</span></span>
+      <span class="copy-r">&copy; 2026 Elevate Builders LLC. All rights reserved.</span>
+    </div>
+    <img class="f-seal" src="images/eb-seal-leather.png" alt="Elevate Builders leather patch seal" width="512" height="512">
+  </div>
+</footer>
+</div>
 </body>
 </html>

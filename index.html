@@ -873,11 +873,12 @@ html{scroll-behavior:smooth}
         </div>
         <p class="lede" style="max-width:48ch">Whether you’re interested in a new or presale home, exploring an investment, or representing a lender, real estate firm, landowner, or trade partner, we would welcome the opportunity to connect.</p>
         <p class="sq-form-note">Send us an inquiry using the form below, or reach us directly by phone or email.</p>
-        <form class="inquiry" id="inquiry" action="https://formsubmit.co/scott@elevatebuildersnwa.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Website inquiry">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://elevatebuildersnwa.com/#contact">
-          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <form class="inquiry" id="inquiry" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="b464390e-1923-4fb9-93ef-58840ed07162">
+          <input type="hidden" name="subject" value="Website inquiry">
+          <input type="hidden" name="from_name" value="Elevate Builders website">
+          <input type="hidden" name="redirect" value="https://elevatebuildersnwa.com/#contact">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="f-row">
             <label>Name<input name="name" autocomplete="name" required></label>
             <label>Email<input name="email" type="email" autocomplete="email" required></label>
@@ -949,9 +950,10 @@ if(inq){inq.addEventListener('submit',e=>{e.preventDefault();
   const btn=inq.querySelector('button[type=submit]');btn.disabled=true;
   st.className='f-status';st.textContent='Sending your inquiry…';
   const data=Object.fromEntries(new FormData(inq));data.list=f.list.checked?'Yes':'No';data.phone=data.phone||'Not provided';
-  data._subject='Website inquiry: '+f.interest.value+' ('+f.name.value.trim()+')';data._replyto=f.email.value.trim();
+  data.subject='Website inquiry: '+f.interest.value+' ('+f.name.value.trim()+')';data.replyto=f.email.value.trim();
+  const fd=new FormData();Object.entries(data).forEach(([k,v])=>fd.append(k,v));
   const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),30000);
-  fetch('https://formsubmit.co/ajax/scott@elevatebuildersnwa.com',{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+  fetch('https://api.web3forms.com/submit',{method:'POST',signal:ctl.signal,headers:{Accept:'application/json'},body:fd})
   .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)!=='true')throw new Error(j.message||r.status)}))
   .then(()=>{inq.reset();st.className='f-status';st.textContent='Thank you for contacting Elevate Builders. We received your inquiry and will be in touch shortly.'})
   .catch(()=>{st.className='f-status err';st.textContent='Sorry, your inquiry didn’t go through. Please call 479-274-0265 or email scott@elevatebuildersnwa.com.'})

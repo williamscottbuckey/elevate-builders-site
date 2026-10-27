@@ -947,14 +947,15 @@ if(inq){inq.addEventListener('submit',e=>{e.preventDefault();
   ['name','email','interest'].forEach(n=>{const el=f[n];const ok=n==='email'?/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()):el.value.trim()!=='';el.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!bad)bad=el;});
   if(bad){st.className='f-status err';st.textContent='Please complete your name, a valid email, and what you’re interested in.';bad.focus();return;}
   const btn=inq.querySelector('button[type=submit]');btn.disabled=true;
-  st.className='f-status';st.textContent='Sending…';
+  st.className='f-status';st.textContent='Sending your inquiry…';
   const data=Object.fromEntries(new FormData(inq));data.list=f.list.checked?'Yes':'No';data.phone=data.phone||'Not provided';
   data._subject='Website inquiry: '+f.interest.value+' ('+f.name.value.trim()+')';data._replyto=f.email.value.trim();
-  fetch('https://formsubmit.co/ajax/scott@elevatebuildersnwa.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+  const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),30000);
+  fetch('https://formsubmit.co/ajax/scott@elevatebuildersnwa.com',{method:'POST',signal:ctl.signal,headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
   .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)!=='true')throw new Error(j.message||r.status)}))
   .then(()=>{inq.reset();st.className='f-status';st.textContent='Thank you for contacting Elevate Builders. We received your inquiry and will be in touch shortly.'})
-  .catch(()=>{st.className='f-status err';st.textContent='Sorry, your inquiry didn’t go through. Please email scott@elevatebuildersnwa.com or call 479-274-0265.'})
-  .finally(()=>{btn.disabled=false});
+  .catch(()=>{st.className='f-status err';st.textContent='Sorry, your inquiry didn’t go through. Please call 479-274-0265 or email scott@elevatebuildersnwa.com.'})
+  .finally(()=>{clearTimeout(timer);btn.disabled=false});
 });}
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{
   const t=b.dataset.copy;

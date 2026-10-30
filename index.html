@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="paged">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -381,6 +381,27 @@ html{scroll-behavior:smooth}
 #eb-site img,#eb-foot img{max-width:100%}
 #eb-site [hidden]{display:none!important}
 
+
+/* paged layout: one page of sections at a time, chosen by the nav buttons */
+html.paged [data-page]:not(.on){display:none!important}
+:is(#eb-site,#eb-foot) .explore{background:var(--paper)}
+:is(#eb-site,#eb-foot) .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+@media (max-width:900px){:is(#eb-site,#eb-foot) .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){:is(#eb-site,#eb-foot) .tiles{grid-template-columns:1fr}}
+:is(#eb-site,#eb-foot) .tile{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .2s,border-color .2s}
+:is(#eb-site,#eb-foot) .tile:hover{transform:translateY(-3px);border-color:var(--navy)}
+:is(#eb-site,#eb-foot) .tile img{width:100%;aspect-ratio:16/10;object-fit:cover}
+:is(#eb-site,#eb-foot) .t-body{display:grid;gap:.45rem;padding:1.1rem 1.2rem 1.3rem}
+:is(#eb-site,#eb-foot) .tile b{font-family:var(--display);font-stretch:108%;font-size:1.15rem;line-height:1.2;color:var(--navy)}
+:is(#eb-site,#eb-foot) .t-line{color:var(--muted);font-size:1rem}
+:is(#eb-site,#eb-foot) .t-go{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--copper)}
+:is(#eb-site,#eb-foot) .pager{border-top:1px solid var(--line);background:var(--paper)}
+:is(#eb-site,#eb-foot) .pager .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1.4rem;flex-wrap:wrap}
+:is(#eb-site,#eb-foot) .pager a{font-family:var(--display);font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--navy);padding:.75rem 1.1rem;border:1.5px solid var(--navy);border-radius:9px}
+:is(#eb-site,#eb-foot) .pager .pg-next{background:var(--navy);color:var(--on-navy)}
+:is(#eb-site,#eb-foot) .pager a:hover{background:var(--copper);border-color:var(--copper);color:#fff}
+@media (max-width:700px){:is(#eb-site,#eb-foot) .nav{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}}
+@media (prefers-reduced-motion:reduce){:is(#eb-site,#eb-foot) .tile{transition:none}}
 </style>
 <!-- PORTFOLIO SWITCHES — delete a line to show that part again.
      Hide Completed Homes:      #eb-site #completed-builds{display:none!important}
@@ -409,7 +430,7 @@ html{scroll-behavior:smooth}
 </header>
 
 <main id="top">
-  <section class="hero" style="padding:0">
+  <section class="hero" style="padding:0" data-page="home">
     <img class="hero-img" src="images/eb-home-exterior.jpg" alt="">
     <div class="wrap">
       <div class="eyebrow">New Homes in Northwest Arkansas</div>
@@ -425,7 +446,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- Trust strip -->
-  <div class="trust" aria-label="Why homeowners and partners trust Elevate Builders">
+  <div class="trust" data-page="home" aria-label="Why homeowners and partners trust Elevate Builders">
     <div class="wrap trust-row">
       <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div><b>Licensed Residential Builder</b><span>State of Arkansas · #0487311027</span></div></div>
       <div class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><div><b>Founded in Northwest Arkansas</b><span>Local roots, local relationships</span></div></div>
@@ -435,7 +456,29 @@ html{scroll-behavior:smooth}
   </div>
 
   <!-- Story -->
-  <section id="story">
+  
+  <section class="explore" data-page="home" aria-label="Explore the site">
+    <div class="wrap">
+      <div class="head"><div class="eyebrow">Explore</div><h2>Where would you like to start?</h2></div>
+      <div class="tiles">
+      <a class="tile" href="#story"><img src="images/eb-living-room.jpg" alt="" loading="lazy">
+        <span class="t-body"><span class="eyebrow">About Elevate Builders</span><b>Every home begins with a promise.</b><span class="t-line">Who we are and the Elevate difference.</span><span class="t-go">Open <span aria-hidden="true">&rarr;</span></span></span></a>
+      <a class="tile" href="#homes"><img src="images/eb-kitchen.jpg" alt="" loading="lazy">
+        <span class="t-body"><span class="eyebrow">Our Homes</span><b>Timeless design. Modern living.</b><span class="t-line">How we design every home.</span><span class="t-go">Open <span aria-hidden="true">&rarr;</span></span></span></a>
+      <a class="tile" href="#projects"><img src="images/eb-meridian-a-exterior-v3.jpg" alt="" loading="lazy">
+        <span class="t-body"><span class="eyebrow">Portfolio</span><b>Homes by Elevate Builders.</b><span class="t-line">Meridian A and B, now in presale.</span><span class="t-go">Open <span aria-hidden="true">&rarr;</span></span></span></a>
+      <a class="tile" href="#process"><img src="images/eb-framing.jpg" alt="" loading="lazy">
+        <span class="t-body"><span class="eyebrow">Process</span><b>A disciplined process from start to finish.</b><span class="t-line">Our four steps and our warranty.</span><span class="t-go">Open <span aria-hidden="true">&rarr;</span></span></span></a>
+      <a class="tile" href="#leadership"><img src="images/eb-plans.jpg" alt="" loading="lazy">
+        <span class="t-body"><span class="eyebrow">Our Leadership</span><b>Experience you can build on.</b><span class="t-line">The people behind every home.</span><span class="t-go">Open <span aria-hidden="true">&rarr;</span></span></span></a>
+      <a class="tile" href="#invest"><img src="images/eb-partnership.jpg" alt="" loading="lazy">
+        <span class="t-body"><span class="eyebrow">Investor Program</span><b>Invest in new-construction homes.</b><span class="t-line">For private and institutional partners.</span><span class="t-go">Open <span aria-hidden="true">&rarr;</span></span></span></a>
+      </div>
+    </div>
+  </section>
+  <nav class="pager" data-page="home" aria-label="Page navigation"><div class="wrap"><span></span><a class="pg-next" href="#story">Next: About <span aria-hidden="true">&rarr;</span></a></div></nav>
+
+<section id="story" data-page="story">
     <div class="wrap split">
       <figure class="frame tall"><img src="images/eb-kitchen.jpg" alt="Bright kitchen with white cabinets, island seating and copper pendant lights" loading="lazy"></figure>
       <div>
@@ -456,7 +499,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- Difference -->
-  <section class="alt" id="difference">
+  <section class="alt" id="difference" data-page="story">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Why Elevate Builders</div>
@@ -473,7 +516,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- Homes -->
-  <section id="homes">
+  <section id="homes" data-page="homes">
     <div class="wrap split">
       <div>
         <div class="head">
@@ -508,9 +551,11 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
+  <nav class="pager" data-page="homes" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#story"><span aria-hidden="true">&larr;</span> About</a><a class="pg-next" href="#projects">Next: Portfolio <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 
   <!-- Projects -->
-  <section class="alt" id="projects">
+  <section class="alt" id="projects" data-page="projects">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Portfolio</div>
@@ -615,9 +660,11 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
+  <nav class="pager" data-page="projects" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#homes"><span aria-hidden="true">&larr;</span> Homes</a><a class="pg-next" href="#process">Next: Process <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 
   <!-- Process -->
-  <section class="process" id="process">
+  <section class="process" id="process" data-page="process">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Carefully Planned. Expertly Built.</div>
@@ -635,7 +682,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- Warranty -->
-  <section class="alt" id="warranty">
+  <section class="alt" id="warranty" data-page="process">
     <div class="wrap warranty">
       <div class="w-card">
         <span class="w-num">1 Year</span>
@@ -655,9 +702,11 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
+  <nav class="pager" data-page="process" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#projects"><span aria-hidden="true">&larr;</span> Portfolio</a><a class="pg-next" href="#leadership">Next: Leadership <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 
   <!-- Leadership -->
-  <section id="leadership">
+  <section id="leadership" data-page="leadership">
     <div class="wrap">
       <div class="head">
         <div class="eyebrow">Our Leadership</div>
@@ -684,7 +733,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- Foundation -->
-  <section class="alt" id="foundation">
+  <section class="alt" id="foundation" data-page="story">
     <div class="wrap">
       <div class="split flip" style="margin-bottom:3.5rem">
         <figure class="tall"><img src="images/eb-plans.jpg" alt="House floor plans spread across a table" loading="lazy"></figure>
@@ -708,9 +757,11 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
+  <nav class="pager" data-page="story" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#home"><span aria-hidden="true">&larr;</span> Home</a><a class="pg-next" href="#homes">Next: Homes <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 
   <!-- Promise -->
-  <section class="promise" id="promise">
+  <section class="promise" id="promise" data-page="leadership">
     <div class="promise-grid">
       <div class="promise-photo">
         <img src="images/eb-keys.jpg" alt="Hand holding house keys on a house-shaped keychain" loading="lazy">
@@ -735,7 +786,7 @@ html{scroll-behavior:smooth}
   </section>
 
   <!-- Partners -->
-  <section id="partners">
+  <section id="partners" data-page="leadership">
     <div class="wrap split flip">
       <figure><img src="images/eb-partnership.jpg" alt="Two people shaking hands across a desk" loading="lazy"></figure>
       <div>
@@ -752,9 +803,11 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
+  <nav class="pager" data-page="leadership" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#process"><span aria-hidden="true">&larr;</span> Process</a><a class="pg-next" href="#invest">Next: Investors <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 
   <!-- Invest -->
-  <section class="invest" id="invest">
+  <section class="invest" id="invest" data-page="invest">
     <div class="wrap">
       <div class="invest-top">
         <div class="head" style="margin:0">
@@ -862,9 +915,11 @@ html{scroll-behavior:smooth}
       <p class="disclaimer"><strong>Important</strong>This information is provided for general purposes only and is not an offer to sell or a solicitation to buy any security. Each project is governed by its own written agreements. Real estate investment involves risk, including changes in market conditions, construction costs, interest rates, time to sale, and rental demand. Returns are not guaranteed. Prospective investors should consult their own financial, tax, and legal advisors.</p>
     </div>
   </section>
+  <nav class="pager" data-page="invest" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#leadership"><span aria-hidden="true">&larr;</span> Leadership</a><a class="pg-next" href="#contact">Next: Contact <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" data-page="contact">
     <div class="wrap contact">
       <div>
         <div class="head">
@@ -911,6 +966,8 @@ html{scroll-behavior:smooth}
       </div>
     </div>
   </section>
+  <nav class="pager" data-page="contact" aria-label="Page navigation"><div class="wrap"><a class="pg-prev" href="#invest"><span aria-hidden="true">&larr;</span> Investors</a><a class="pg-next" href="#home">Next: Home <span aria-hidden="true">&rarr;</span></a></div></nav>
+
 </main>
 
 <a class="to-top hide" id="toTop" href="#top" aria-label="Back to top"><img src="images/eb-favicon.png" alt="" width="180" height="180"></a>
@@ -925,8 +982,6 @@ html{scroll-behavior:smooth}
 (function(){
 const tt=document.getElementById('toTop');addEventListener('scroll',()=>tt.classList.toggle('hide',scrollY<600),{passive:true});
 const links=[...document.querySelectorAll('.nav a')];
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-45% 0px -50% 0px'});
-links.forEach(a=>{const t=document.querySelector(a.getAttribute('href'));if(t)obs.observe(t)});
 document.querySelectorAll('.pgrid').forEach(g=>{const n=[...g.children].filter(c=>getComputedStyle(c).display!=='none').length;const h=g.previousElementSibling;if(h&&n<=1)h.classList.add('single')});
 document.querySelectorAll('.media').forEach(m=>{
   const imgs=[...m.querySelectorAll('.mv-img')],tabs=[...m.querySelectorAll('.mtab')];
@@ -955,7 +1010,7 @@ if(inq){inq.addEventListener('submit',e=>{e.preventDefault();
   const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),30000);
   fetch('https://api.web3forms.com/submit',{method:'POST',signal:ctl.signal,headers:{Accept:'application/json'},body:fd})
   .then(r=>r.json().then(j=>{if(!r.ok||String(j.success)!=='true')throw new Error(j.message||r.status)}))
-  .then(()=>{inq.reset();st.className='f-status';st.textContent='Thank you for contacting Elevate Builders. We received your inquiry and will be in touch shortly.'})
+  .then(()=>{document.dispatchEvent(new CustomEvent('elv:submit',{detail:f.interest.value}));inq.reset();st.className='f-status';st.textContent='Thank you for contacting Elevate Builders. We received your inquiry and will be in touch shortly.'})
   .catch(()=>{st.className='f-status err';st.textContent='Sorry, your inquiry didn’t go through. Please call 479-274-0265 or email scott@elevatebuildersnwa.com.'})
   .finally(()=>{clearTimeout(timer);btn.disabled=false});
 });}
@@ -979,11 +1034,63 @@ function sel(b){const a=b.previousElementSibling,r=document.createRange();r.sele
       <span>Arkansas Residential Builder &middot; License #0487311027</span>
       <span>479-274-0265 &middot; scott@elevatebuildersnwa.com</span>
       <span class="f-eho"><svg class="eho-mark" viewBox="0 0 64 64" role="img" aria-label="Equal Housing Opportunity"><path d="M32 6 4 26h6v32h44V26h6L32 6Zm16 46H16V24l16-11 16 11v28Z" fill="currentColor"/><rect x="22" y="30" width="20" height="5" fill="currentColor"/><rect x="22" y="40" width="20" height="5" fill="currentColor"/></svg><span>Equal Housing Opportunity</span></span>
+      <span class="copy-r">This site uses anonymous analytics: no cookies, no personal information. </span>
       <span class="copy-r">&copy; 2026 Elevate Builders LLC. All rights reserved.</span>
     </div>
     <img class="f-seal" src="images/eb-seal-leather.png" alt="Elevate Builders leather patch seal" width="512" height="512">
   </div>
 </footer>
 </div>
+<script>
+(function(){
+const VIEW={"story": "story", "difference": "story", "foundation": "story", "homes": "homes", "projects": "projects", "process": "process", "warranty": "process", "leadership": "leadership", "promise": "leadership", "partners": "leadership", "invest": "invest", "contact": "contact"},PAGES=["home", "story", "homes", "projects", "process", "leadership", "invest", "contact"];
+const secs=[...document.querySelectorAll('[data-page]')],navLinks=[...document.querySelectorAll('.nav a')];
+function show(id,smooth){
+  if(!id||id==='top')id='home';
+  const page=PAGES.includes(id)?id:(VIEW[id]||'home');
+  secs.forEach(s=>s.classList.toggle('on',s.dataset.page===page));
+  document.dispatchEvent(new CustomEvent('elv:page',{detail:page}));
+  navLinks.forEach(a=>{const t=a.getAttribute('href').slice(1);a.classList.toggle('active',(VIEW[t]||t)===page&&!a.classList.contains('cta')||(a.classList.contains('cta')&&page==='contact'))});
+  const target=(!PAGES.includes(id)&&document.getElementById(id))||null;
+  if(target&&secs.find(s=>s.dataset.page===page)!==target)target.scrollIntoView({behavior:smooth?'smooth':'auto'});
+  else window.scrollTo({top:0,behavior:'auto'});
+}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;
+  if(a.id==='toTop'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});return;}
+  const id=a.getAttribute('href').slice(1);e.preventDefault();
+  try{history.pushState(null,'','#'+(id==='top'?'home':id))}catch(_){location.hash=id}
+  show(id,true);});
+addEventListener('popstate',()=>show(location.hash.slice(1)));
+addEventListener('hashchange',()=>show(location.hash.slice(1)));
+try{history.scrollRestoration='manual'}catch(_){}
+show(location.hash.slice(1));
+addEventListener('load',()=>show(location.hash.slice(1)));
+})();
+</script>
+<script>
+/* Anonymous analytics: page views, time on page, button clicks, inquiries. No cookies, no IP addresses, no names or emails. */
+(function(){
+const EP='https://elevate-analytics.elevatebuilders.workers.dev/e',HOSTS=['elevatebuildersnwa.com','www.elevatebuildersnwa.com'];
+if(!HOSTS.includes(location.hostname)||navigator.webdriver||navigator.doNotTrack==='1'||navigator.globalPrivacyControl)return;
+let sid;try{sid=sessionStorage.getItem('elv');if(!sid){sid=Math.random().toString(36).slice(2,14);sessionStorage.setItem('elv',sid)}}catch(_){sid=Math.random().toString(36).slice(2,14)}
+const device=matchMedia('(max-width:700px)').matches?'mobile':'desktop';
+let ref='';try{const u=new URL(document.referrer);if(u.hostname&&!HOSTS.includes(u.hostname))ref=u.hostname.replace(/^www\./,'')}catch(_){}
+let page=null,since=null,queue=[];
+const now=()=>performance.now()/1000;
+function send(final){if(!queue.length)return;const body=JSON.stringify(queue);queue=[];
+  try{if(navigator.sendBeacon&&navigator.sendBeacon(EP,new Blob([body],{type:'text/plain'})))return}catch(_){}
+  try{fetch(EP,{method:'POST',body,keepalive:true,headers:{'Content-Type':'text/plain'}}).catch(()=>{})}catch(_){}}
+function add(type,extra){queue.push(Object.assign({type,sid,page:page||'home',device},extra||{}));if(queue.length>=8)send()}
+function closeTime(){if(page&&since!==null){const s=now()-since;since=null;if(s>=1)add('time',{value:Math.round(s*10)/10})}}
+document.addEventListener('elv:page',e=>{if(e.detail===page)return;closeTime();page=e.detail;since=document.hidden?null:now();add('view',{ref:ref});ref=''});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){closeTime();send(true)}else if(page){since=now()}});
+addEventListener('pagehide',()=>{closeTime();send(true)});
+document.addEventListener('click',e=>{const el=e.target.closest('a,button');if(!el)return;
+  const label=(el.getAttribute('aria-label')||el.textContent||el.getAttribute('href')||'').replace(/\s+/g,' ').trim().slice(0,60);
+  if(label)add('click',{label})},true);
+document.addEventListener('elv:submit',e=>add('submit',{label:String(e.detail||'').slice(0,60)}));
+setInterval(()=>send(),15000);
+})();
+</script>
 </body>
 </html>
